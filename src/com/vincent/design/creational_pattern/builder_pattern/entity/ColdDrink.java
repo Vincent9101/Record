@@ -2,9 +2,9 @@ package com.vincent.design.creational_pattern.builder_pattern.entity;
 
 import com.vincent.design.creational_pattern.builder_pattern.MealItem;
 
-public class Burger implements MealItem{
+public class ColdDrink implements MealItem{
 
-	public Burger() {
+	public ColdDrink() {
 		// TODO Auto-generated constructor stub
 	}
 

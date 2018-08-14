@@ -1,9 +1,11 @@
 package com.vincent.design.creational_pattern.builder_pattern;
 
 import java.util.List;
+
+import com.vincent.design.creational_pattern.builder_pattern.entity.Packing;
 public class Meal {
 
-	private List<MealItems> items;
+	private List<MealItem> items;
 
 	public Meal() {
 		// TODO Auto-generated constructor stub
