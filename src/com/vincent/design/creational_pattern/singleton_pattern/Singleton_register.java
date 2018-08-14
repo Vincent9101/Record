@@ -19,7 +19,7 @@ public class Singleton_register {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Singleton_register getInstance() {
+	public static final Singleton_register getInstance() {
 		return SingletonHolder.instance;
 	}
 
