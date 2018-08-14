@@ -10,5 +10,4 @@ public enum Singleton_enum {
 		
 	Instance;
 	
-
 }

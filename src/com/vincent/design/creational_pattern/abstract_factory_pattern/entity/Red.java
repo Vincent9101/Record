@@ -1,4 +1,4 @@
-package com.vincent.design.creational_pattern.abstract_factory_pattern.enity;
+package com.vincent.design.creational_pattern.abstract_factory_pattern.entity;
 
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 

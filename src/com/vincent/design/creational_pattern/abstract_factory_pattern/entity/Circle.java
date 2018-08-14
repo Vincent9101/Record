@@ -1,17 +1,18 @@
-package com.vincent.design.creational_pattern.abstract_factory_pattern.enity;
+package com.vincent.design.creational_pattern.abstract_factory_pattern.entity;
 
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Shape;
 
-public class Rectangle implements Shape {
+public class Circle implements Shape {
 
-	public Rectangle() {
+	public Circle() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void draw() {
 		// TODO Auto-generated method stub
-		System.out.println("in rectangle draw");
+		System.out.println("in circle draw");
+
 	}
 
 }
