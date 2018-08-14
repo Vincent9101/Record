@@ -1,8 +1,6 @@
 package com.vincent.design.creational_pattern.builder_pattern;
 
 import java.util.List;
-
-import com.vincent.design.creational_pattern.builder_pattern.entity.Packing;
 public class Meal {
 
 	private List<MealItem> items;

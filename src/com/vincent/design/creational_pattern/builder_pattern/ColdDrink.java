@@ -1,6 +1,4 @@
-package com.vincent.design.creational_pattern.builder_pattern.entity;
-
-import com.vincent.design.creational_pattern.builder_pattern.MealItem;
+package com.vincent.design.creational_pattern.builder_pattern;
 
 public class ColdDrink implements MealItem{
 
