@@ -8,4 +8,16 @@ public class Pepsi extends ColdDrink {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String name() {
+		// TODO Auto-generated method stub
+		return "Pesi cola";
+	}
+
+	@Override
+	public float price() {
+		// TODO Auto-generated method stub
+		return 77.7f;
+	}
+
 }

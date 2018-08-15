@@ -7,5 +7,11 @@ public class Wrapper implements Packing {
 	public Wrapper() {
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String pack() {
+		// TODO Auto-generated method stub
+		return "this is a wrapper";
+	}
+
 
 }

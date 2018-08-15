@@ -8,4 +8,16 @@ public class Coke extends ColdDrink {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String name() {
+		// TODO Auto-generated method stub
+		return "Coke cola";
+	}
+
+	@Override
+	public float price() {
+		// TODO Auto-generated method stub
+		return 88.88f;
+	}
+
 }

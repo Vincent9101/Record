@@ -8,4 +8,15 @@ public class ChickenBurger extends Burger {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String name() {
+		// TODO Auto-generated method stub
+		return "chicken burger";
+	}
+
+	@Override
+	public float price() {
+		// TODO Auto-generated method stub
+		return 55.5f;	}
+ 
 }

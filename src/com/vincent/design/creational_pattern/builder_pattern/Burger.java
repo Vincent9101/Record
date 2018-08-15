@@ -1,6 +1,8 @@
 package com.vincent.design.creational_pattern.builder_pattern;
 
-public class Burger implements MealItem{
+import com.vincent.design.creational_pattern.builder_pattern.entity.Wrapper;
+
+public abstract class Burger implements MealItem{
 
 	public Burger() {
 		// TODO Auto-generated constructor stub
@@ -9,19 +11,10 @@ public class Burger implements MealItem{
 	@Override
 	public Packing packing() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Wrapper();
 	}
+	
+	public abstract float price();
 
-	@Override
-	public float price() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String name() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

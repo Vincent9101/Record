@@ -8,4 +8,10 @@ public class Bottle implements Packing {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String pack() {
+		// TODO Auto-generated method stub
+		return "this is a bottle";
+	}
+
 }
