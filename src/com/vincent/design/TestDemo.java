@@ -1,27 +1,38 @@
 package com.vincent.design;
 
+import org.junit.Test;
+
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
-import com.vincent.design.creational_pattern.abstract_factory_pattern.entity.Circle;
-import com.vincent.design.creational_pattern.abstract_factory_pattern.entity.Square;
 import com.vincent.design.creational_pattern.builder_pattern.Meal;
 import com.vincent.design.creational_pattern.builder_pattern.MealBuilder;
 import com.vincent.design.creational_pattern.factory_pattern.Shape;
 import com.vincent.design.creational_pattern.factory_pattern.ShapeFactory;
-import org.junit.Test;
+import com.vincent.design.creational_pattern.prototype_pattern.ShapeCache;
 
 public class TestDemo {
 
-	@Test
+	// @Test
+	public void test_prototype() {
+		ShapeCache.loadShapeCache();
+		com.vincent.design.creational_pattern.prototype_pattern.Shape circle = (com.vincent.design.creational_pattern.prototype_pattern.Shape) ShapeCache
+				.getShape("Circle1");
+		com.vincent.design.creational_pattern.prototype_pattern.Shape circle2 = (com.vincent.design.creational_pattern.prototype_pattern.Shape) ShapeCache
+				.getShape("Circle1");
+		// 说明了是克隆的内容一样但不是一个对象
+		System.out.println(circle == circle2);
+	}
+
+	// @Test
 	public void test_builder() {
 		MealBuilder builder = new MealBuilder();
 		Meal nonVegMeal = builder.getNonVegMeal();
 		Meal vegMeal = builder.getVegMeal();
-		System.out.println("nonVegMeal  "+nonVegMeal.getCost());
+		System.out.println("nonVegMeal  " + nonVegMeal.getCost());
 		nonVegMeal.showMealItems();
-		
-		System.out.println("-----\nvegMeal  "+vegMeal.getCost());
+
+		System.out.println("-----\nvegMeal  " + vegMeal.getCost());
 		vegMeal.showMealItems();
 
 	}
