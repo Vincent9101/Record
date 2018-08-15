@@ -10,8 +10,21 @@ import com.vincent.design.creational_pattern.builder_pattern.MealBuilder;
 import com.vincent.design.creational_pattern.factory_pattern.Shape;
 import com.vincent.design.creational_pattern.factory_pattern.ShapeFactory;
 import com.vincent.design.creational_pattern.prototype_pattern.ShapeCache;
+import com.vincent.design.structural_pattern.adapter_pattern.AudioPlayer;
 
 public class TestDemo {
+	
+	
+	@Test
+	public void test_adapter() {
+		AudioPlayer audioPlayer=new AudioPlayer();
+		audioPlayer.play("mp3", "仙劍");
+		audioPlayer.play("Mp4", "蠟筆小新");
+		audioPlayer.play("Vlc", "叮噹貓");
+		audioPlayer.play("mmp", "啊呸");
+	
+		
+	}
 
 	// @Test
 	public void test_prototype() {
@@ -20,7 +33,7 @@ public class TestDemo {
 				.getShape("Circle1");
 		com.vincent.design.creational_pattern.prototype_pattern.Shape circle2 = (com.vincent.design.creational_pattern.prototype_pattern.Shape) ShapeCache
 				.getShape("Circle1");
-		// 说明了是克隆的内容一样但不是一个对象
+		// 说明了是克隆的内容一样但不是一个对象	
 		System.out.println(circle == circle2);
 	}
 
