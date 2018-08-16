@@ -1,7 +1,4 @@
-# desgin-pattern
-该项目作为学习设计模式使用的demo记录
-
-# 设计模式的的六大原则:
+#设计模式的的六大原则:
    学习设计模式之前最好先了解一下设计模式的设计原则：
 
  **1. 开闭原则（open close principle）**
@@ -50,12 +47,12 @@
 
 
 
-    ![clipboard.png](/img/bVbfj40)
+![clipboard.png](/img/bVbfj40)
 
  - ###单例模式（singleton pattern）    
  一个类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象
      1.不支持线程的懒汉单例模式 
-     ```java 
+   ```java 
   public class Singleton_unsupport_multithread {
 
 	private Singleton_unsupport_multithread() {
@@ -109,7 +106,7 @@
     
     }
 
-     ``` 
+   
     3.饿汉模式
     
  ```java
@@ -183,20 +180,26 @@ public class Singleton_register {
 
     使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。值得一说的是感觉是这个设计模式 感觉更加注重内部对象的细节，内部零件装配的顺序。
 
-
-     
-
- 
-
-      
+ - ###原型模式（prototype pattern）
+   用于创建**重复**的对象，同时又能保证性能
+    这种模式是实现了一个原型接口，该接口用于创建当前对象的**克隆**。当直接创建对象的代价比较大时，则采用这种模式。
+    这个模式感觉一一般和工厂模式一起使用的比较多 比较方便
+    
  - ##结构型模式（ctructural pattern）
+
     这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。
+    
+ - ###适配器模式（adapter pattern）
+    将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。
+ - ###桥接模式（bridge pattern）
+    是用于把抽象化与实现化解耦，使得二者可以独立变化，目的就是为了抽象与实现分离，都可以有独立的变化，用抽象类依赖实现类来实现。
+
  - ##行为型模式（behavioral pattern）    
     这些设计模式特别关注对象之间的通信
  - ##J2EE设计模式（behavioral pattern）    
     这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。
     
-   ![clipboard.png](/img/bVbfhUG)
+  ![clipboard.png](/img/bVbfhUG)
 
-
+#待续。。。
   [1]: https://github.com/restoflife/desgin-pattern

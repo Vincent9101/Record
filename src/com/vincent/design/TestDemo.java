@@ -10,12 +10,23 @@ import com.vincent.design.creational_pattern.builder_pattern.MealBuilder;
 import com.vincent.design.creational_pattern.factory_pattern.Shape;
 import com.vincent.design.creational_pattern.factory_pattern.ShapeFactory;
 import com.vincent.design.creational_pattern.prototype_pattern.ShapeCache;
+import com.vincent.design.creational_pattern.prototype_pattern.entity.Circle;
 import com.vincent.design.structural_pattern.adapter_pattern.AudioPlayer;
+import com.vincent.design.structural_pattern.bridge_pattern.GreenCircle;
+import com.vincent.design.structural_pattern.bridge_pattern.RedCircle;
 
 public class TestDemo {
 	
-	
 	@Test
+	public void test_bridge() {
+		com.vincent.design.structural_pattern.bridge_pattern.Shape redCircle,greenCircle;
+		redCircle=new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 3, new RedCircle());
+		greenCircle=new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 4, new GreenCircle());
+		redCircle.draw();
+		greenCircle.draw();
+	}
+	
+//	@Test
 	public void test_adapter() {
 		AudioPlayer audioPlayer=new AudioPlayer();
 		audioPlayer.play("mp3", "仙劍");
