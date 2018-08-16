@@ -1,5 +1,8 @@
 package com.vincent.design;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
@@ -10,14 +13,56 @@ import com.vincent.design.creational_pattern.builder_pattern.MealBuilder;
 import com.vincent.design.creational_pattern.factory_pattern.Shape;
 import com.vincent.design.creational_pattern.factory_pattern.ShapeFactory;
 import com.vincent.design.creational_pattern.prototype_pattern.ShapeCache;
-import com.vincent.design.creational_pattern.prototype_pattern.entity.Circle;
 import com.vincent.design.structural_pattern.adapter_pattern.AudioPlayer;
 import com.vincent.design.structural_pattern.bridge_pattern.GreenCircle;
 import com.vincent.design.structural_pattern.bridge_pattern.RedCircle;
+import com.vincent.design.structural_pattern.filter_pattern.Criteria;
+import com.vincent.design.structural_pattern.filter_pattern.entity.AndCriteria;
+import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaFemale;
+import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaMale;
+import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaSingle;
+import com.vincent.design.structural_pattern.filter_pattern.entity.OrCriteria;
+import com.vincent.design.structural_pattern.filter_pattern.entity.Person;
 
 public class TestDemo {
-	
+	  public static void printPersons(List<Person> persons){
+	      for (Person person : persons) {
+	         System.out.println("Person : [ Name : " + person.getName() 
+	            +", Gender : " + person.getGender() 
+	            +", Marital Status : " + person.getMaritalStatus()
+	            +" ]");
+	      }
+	   }      
 	@Test
+	public void test_criteria() {
+		 List<Person> persons = new ArrayList<Person>();
+		 
+	      persons.add(new Person("Robert","Male", "Single"));
+	      persons.add(new Person("John","Male", "Married"));
+	      persons.add(new Person("Laura","Female", "Married"));
+	      persons.add(new Person("Diana","Female", "Single"));
+	      persons.add(new Person("Mike","Male", "Single"));
+	      persons.add(new Person("Bobby","Male", "Single"));
+	 
+	      Criteria male = new CriteriaMale();
+	      Criteria female = new CriteriaFemale();
+	      Criteria single = new CriteriaSingle();
+	      Criteria singleMale = new AndCriteria(single, male);
+	      Criteria singleOrFemale = new OrCriteria(single, female);
+	 
+	      System.out.println("Males: ");
+	      printPersons(male.meetCriteria(persons));
+	 
+	      System.out.println("\nFemales: ");
+	      printPersons(female.meetCriteria(persons));
+	 
+	      System.out.println("\nSingle Males: ");
+	      printPersons(singleMale.meetCriteria(persons));
+	 
+	      System.out.println("\nSingle Or Females: ");
+	      printPersons(singleOrFemale.meetCriteria(persons));
+	}
+//	@Test
 	public void test_bridge() {
 		com.vincent.design.structural_pattern.bridge_pattern.Shape redCircle,greenCircle;
 		redCircle=new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 3, new RedCircle());
