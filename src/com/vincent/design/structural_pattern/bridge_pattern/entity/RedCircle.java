@@ -1,4 +1,6 @@
-package com.vincent.design.structural_pattern.bridge_pattern;
+package com.vincent.design.structural_pattern.bridge_pattern.entity;
+
+import com.vincent.design.structural_pattern.bridge_pattern.DrawAPI;
 
 public class RedCircle implements DrawAPI {
 
