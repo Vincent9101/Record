@@ -1,4 +1,6 @@
-package com.vincent.design.structural_pattern.adapter_pattern;
+package com.vincent.design.structural_pattern.adapter_pattern.entity;
+
+import com.vincent.design.structural_pattern.adapter_pattern.AdvancedMediaPlayer;
 
 public class VlcPlayer implements AdvancedMediaPlayer{
 

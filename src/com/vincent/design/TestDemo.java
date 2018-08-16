@@ -13,9 +13,10 @@ import com.vincent.design.creational_pattern.builder_pattern.MealBuilder;
 import com.vincent.design.creational_pattern.factory_pattern.Shape;
 import com.vincent.design.creational_pattern.factory_pattern.ShapeFactory;
 import com.vincent.design.creational_pattern.prototype_pattern.ShapeCache;
-import com.vincent.design.structural_pattern.adapter_pattern.AudioPlayer;
+import com.vincent.design.structural_pattern.adapter_pattern.entity.AudioPlayer;
 import com.vincent.design.structural_pattern.bridge_pattern.GreenCircle;
 import com.vincent.design.structural_pattern.bridge_pattern.RedCircle;
+import com.vincent.design.structural_pattern.composite_pattern.Employee;
 import com.vincent.design.structural_pattern.filter_pattern.Criteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.AndCriteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaFemale;
@@ -25,61 +26,92 @@ import com.vincent.design.structural_pattern.filter_pattern.entity.OrCriteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.Person;
 
 public class TestDemo {
-	  public static void printPersons(List<Person> persons){
-	      for (Person person : persons) {
-	         System.out.println("Person : [ Name : " + person.getName() 
-	            +", Gender : " + person.getGender() 
-	            +", Marital Status : " + person.getMaritalStatus()
-	            +" ]");
-	      }
-	   }      
+
 	@Test
-	public void test_criteria() {
-		 List<Person> persons = new ArrayList<Person>();
-		 
-	      persons.add(new Person("Robert","Male", "Single"));
-	      persons.add(new Person("John","Male", "Married"));
-	      persons.add(new Person("Laura","Female", "Married"));
-	      persons.add(new Person("Diana","Female", "Single"));
-	      persons.add(new Person("Mike","Male", "Single"));
-	      persons.add(new Person("Bobby","Male", "Single"));
-	 
-	      Criteria male = new CriteriaMale();
-	      Criteria female = new CriteriaFemale();
-	      Criteria single = new CriteriaSingle();
-	      Criteria singleMale = new AndCriteria(single, male);
-	      Criteria singleOrFemale = new OrCriteria(single, female);
-	 
-	      System.out.println("Males: ");
-	      printPersons(male.meetCriteria(persons));
-	 
-	      System.out.println("\nFemales: ");
-	      printPersons(female.meetCriteria(persons));
-	 
-	      System.out.println("\nSingle Males: ");
-	      printPersons(singleMale.meetCriteria(persons));
-	 
-	      System.out.println("\nSingle Or Females: ");
-	      printPersons(singleOrFemale.meetCriteria(persons));
+	public void test_composit() {
+		Employee CEO = new Employee("Vincent", "CEO", 30000);
+	
+		Employee headSales = new Employee("Robert", "Head Sales", 20000);
+		Employee headMarketing = new Employee("Michel", "Head Marketing", 20000);
+		
+		Employee clerk1 = new Employee("Laura", "Marketing", 10000);
+		Employee clerk2 = new Employee("Bob", "Marketing", 10000);
+
+		Employee salesExecutive1 = new Employee("Richard", "Sales", 10000);
+		Employee salesExecutive2 = new Employee("Rob", "Sales", 10000);
+
+		CEO.add(headSales);
+		CEO.add(headMarketing);
+
+		headSales.add(salesExecutive1);
+		headSales.add(salesExecutive2);
+
+		headMarketing.add(clerk1);
+		headMarketing.add(clerk2);
+
+		System.out.println(CEO);
+		for (Employee headEmployee : CEO.getSubordinates()) {
+			System.out.println(headEmployee);
+			for (Employee employee : headEmployee.getSubordinates()) {
+				System.out.println(employee);
+			}
+		}
 	}
-//	@Test
+
+	// @Test
+	public void test_criteria() {
+		List<Person> persons = new ArrayList<Person>();
+
+		persons.add(new Person("Robert", "Male", "Single"));
+		persons.add(new Person("John", "Male", "Married"));
+		persons.add(new Person("Laura", "Female", "Married"));
+		persons.add(new Person("Diana", "Female", "Single"));
+		persons.add(new Person("Mike", "Male", "Single"));
+		persons.add(new Person("Bobby", "Male", "Single"));
+
+		Criteria male = new CriteriaMale();
+		Criteria female = new CriteriaFemale();
+		Criteria single = new CriteriaSingle();
+		Criteria singleMale = new AndCriteria(single, male);
+		Criteria singleOrFemale = new OrCriteria(single, female);
+
+		System.out.println("Males: ");
+		printPersons(male.meetCriteria(persons));
+
+		System.out.println("\nFemales: ");
+		printPersons(female.meetCriteria(persons));
+
+		System.out.println("\nSingle Males: ");
+		printPersons(singleMale.meetCriteria(persons));
+
+		System.out.println("\nSingle Or Females: ");
+		printPersons(singleOrFemale.meetCriteria(persons));
+	}
+
+	public static void printPersons(List<Person> persons) {
+		for (Person person : persons) {
+			System.out.println("Person : [ Name : " + person.getName() + ", Gender : " + person.getGender()
+					+ ", Marital Status : " + person.getMaritalStatus() + " ]");
+		}
+	}
+
+	// @Test
 	public void test_bridge() {
-		com.vincent.design.structural_pattern.bridge_pattern.Shape redCircle,greenCircle;
-		redCircle=new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 3, new RedCircle());
-		greenCircle=new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 4, new GreenCircle());
+		com.vincent.design.structural_pattern.bridge_pattern.Shape redCircle, greenCircle;
+		redCircle = new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 3, new RedCircle());
+		greenCircle = new com.vincent.design.structural_pattern.bridge_pattern.Circle(2, 4, new GreenCircle());
 		redCircle.draw();
 		greenCircle.draw();
 	}
-	
-//	@Test
+
+	// @Test
 	public void test_adapter() {
-		AudioPlayer audioPlayer=new AudioPlayer();
+		AudioPlayer audioPlayer = new AudioPlayer();
 		audioPlayer.play("mp3", "仙劍");
 		audioPlayer.play("Mp4", "蠟筆小新");
 		audioPlayer.play("Vlc", "叮噹貓");
 		audioPlayer.play("mmp", "啊呸");
-	
-		
+
 	}
 
 	// @Test
@@ -89,7 +121,7 @@ public class TestDemo {
 				.getShape("Circle1");
 		com.vincent.design.creational_pattern.prototype_pattern.Shape circle2 = (com.vincent.design.creational_pattern.prototype_pattern.Shape) ShapeCache
 				.getShape("Circle1");
-		// 说明了是克隆的内容一样但不是一个对象	
+		// 说明了是克隆的内容一样但不是一个对象
 		System.out.println(circle == circle2);
 	}
 

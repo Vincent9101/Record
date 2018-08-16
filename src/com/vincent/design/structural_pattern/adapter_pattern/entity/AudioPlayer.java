@@ -1,5 +1,7 @@
-package com.vincent.design.structural_pattern.adapter_pattern;
+package com.vincent.design.structural_pattern.adapter_pattern.entity;
 
+import com.vincent.design.structural_pattern.adapter_pattern.MediaAdapter;
+import com.vincent.design.structural_pattern.adapter_pattern.MediaPlayer;
 
 /**
  * 
