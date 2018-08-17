@@ -3,6 +3,8 @@ package com.vincent.design;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.plaf.synth.SynthPainter;
+
 import org.junit.Test;
 
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
@@ -17,6 +19,10 @@ import com.vincent.design.structural_pattern.adapter_pattern.entity.AudioPlayer;
 import com.vincent.design.structural_pattern.bridge_pattern.GreenCircle;
 import com.vincent.design.structural_pattern.bridge_pattern.RedCircle;
 import com.vincent.design.structural_pattern.composite_pattern.Employee;
+import com.vincent.design.structural_pattern.decorator_pattern.ShapeDecorator;
+import com.vincent.design.structural_pattern.decorator_pattern.entity.Circle;
+import com.vincent.design.structural_pattern.decorator_pattern.entity.Rectangle;
+import com.vincent.design.structural_pattern.decorator_pattern.entity.RedShapeDecorator;
 import com.vincent.design.structural_pattern.filter_pattern.Criteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.AndCriteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaFemale;
@@ -26,14 +32,23 @@ import com.vincent.design.structural_pattern.filter_pattern.entity.OrCriteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.Person;
 
 public class TestDemo {
-
 	@Test
+	public void test_decorator() {
+		com.vincent.design.structural_pattern.decorator_pattern.Shape circle = new Rectangle(), rec = new Circle();
+		ShapeDecorator decorator = new RedShapeDecorator(rec);
+		decorator.draw();
+		decorator = new RedShapeDecorator(circle);
+		decorator.draw();
+
+	}
+
+	// @Test
 	public void test_composit() {
 		Employee CEO = new Employee("Vincent", "CEO", 30000);
-	
+
 		Employee headSales = new Employee("Robert", "Head Sales", 20000);
 		Employee headMarketing = new Employee("Michel", "Head Marketing", 20000);
-		
+
 		Employee clerk1 = new Employee("Laura", "Marketing", 10000);
 		Employee clerk2 = new Employee("Bob", "Marketing", 10000);
 
