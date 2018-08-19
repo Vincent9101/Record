@@ -23,6 +23,7 @@ import com.vincent.design.structural_pattern.decorator_pattern.ShapeDecorator;
 import com.vincent.design.structural_pattern.decorator_pattern.entity.Circle;
 import com.vincent.design.structural_pattern.decorator_pattern.entity.Rectangle;
 import com.vincent.design.structural_pattern.decorator_pattern.entity.RedShapeDecorator;
+import com.vincent.design.structural_pattern.facade_pattern.Computer;
 import com.vincent.design.structural_pattern.filter_pattern.Criteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.AndCriteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaFemale;
@@ -33,6 +34,13 @@ import com.vincent.design.structural_pattern.filter_pattern.entity.Person;
 
 public class TestDemo {
 	@Test
+	public void test_facade() {
+		Computer computer = new Computer();
+		computer.start();
+		computer.shutDown();
+	}
+
+	// @Test
 	public void test_decorator() {
 		com.vincent.design.structural_pattern.decorator_pattern.Shape circle = new Rectangle(), rec = new Circle();
 		ShapeDecorator decorator = new RedShapeDecorator(rec);
