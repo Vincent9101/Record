@@ -7,6 +7,7 @@ import javax.swing.plaf.synth.SynthPainter;
 
 import org.junit.Test;
 
+import com.sun.javafx.runtime.VersionInfo;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -34,6 +35,11 @@ import com.vincent.design.structural_pattern.filter_pattern.entity.Person;
 
 public class TestDemo {
 	@Test
+	public void test_flyWeight() {
+         com.vincent.design.structural_pattern.flyweight_pattern.ShapeFactory.getCircle("red");
+	}
+
+	// @Test
 	public void test_facade() {
 		Computer computer = new Computer();
 		computer.start();
