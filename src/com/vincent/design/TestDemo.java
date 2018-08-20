@@ -8,6 +8,7 @@ import javax.swing.plaf.synth.SynthPainter;
 import org.junit.Test;
 
 import com.sun.javafx.runtime.VersionInfo;
+import com.sun.prism.paint.ImagePattern;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -32,11 +33,22 @@ import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaMale;
 import com.vincent.design.structural_pattern.filter_pattern.entity.CriteriaSingle;
 import com.vincent.design.structural_pattern.filter_pattern.entity.OrCriteria;
 import com.vincent.design.structural_pattern.filter_pattern.entity.Person;
+import com.vincent.design.structural_pattern.proxy_pattern.Image;
+import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
+import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
 	@Test
+	public void test_proxy() {
+		Image image = new ImageEntity();
+		ProxyImage imgProxy = new ProxyImage(image);
+		imgProxy.show();
+
+	}
+
+	// @Test
 	public void test_flyWeight() {
-         com.vincent.design.structural_pattern.flyweight_pattern.ShapeFactory.getCircle("red");
+		com.vincent.design.structural_pattern.flyweight_pattern.ShapeFactory.getCircle("red");
 	}
 
 	// @Test
