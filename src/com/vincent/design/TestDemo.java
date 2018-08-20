@@ -9,6 +9,10 @@ import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.Abst
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.FileLogger;
+import com.vincent.design.behavioral_pattern.command_pattern.Broker;
+import com.vincent.design.behavioral_pattern.command_pattern.BuyStock;
+import com.vincent.design.behavioral_pattern.command_pattern.SellStock;
+import com.vincent.design.behavioral_pattern.command_pattern.Stock;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -39,6 +43,20 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
 	@Test
+	public void test_command() {
+		Stock abcStock = new Stock();
+
+		BuyStock buyStockOrder = new BuyStock(abcStock);
+		SellStock sellStockOrder = new SellStock(abcStock);
+
+		Broker broker = new Broker();
+		broker.takeOrder(buyStockOrder);
+		broker.takeOrder(sellStockOrder);
+
+		broker.placeOrders();
+	}
+
+	// @Test
 	public void test_chain_of_responsibility() {
 		AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
 		AbstractLogger fileLogger = new FileLogger(AbstractLogger.DEBUG);
