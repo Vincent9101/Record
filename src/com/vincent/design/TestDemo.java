@@ -3,12 +3,12 @@ package com.vincent.design;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.plaf.synth.SynthPainter;
-
 import org.junit.Test;
 
-import com.sun.javafx.runtime.VersionInfo;
-import com.sun.prism.paint.ImagePattern;
+import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
+import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
+import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
+import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.FileLogger;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -39,6 +39,19 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
 	@Test
+	public void test_chain_of_responsibility() {
+		AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
+		AbstractLogger fileLogger = new FileLogger(AbstractLogger.DEBUG);
+		AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO);
+		errorLogger.setNextLogger(fileLogger);
+		fileLogger.setNextLogger(consoleLogger);
+		AbstractLogger loggerChain = errorLogger;
+		loggerChain.logMessage(AbstractLogger.INFO, "This is an information.");
+		loggerChain.logMessage(AbstractLogger.DEBUG, "This is an debug level information.");
+		loggerChain.logMessage(AbstractLogger.ERROR, "This is an error information.");
+	}
+
+	// @Test
 	public void test_proxy() {
 		Image image = new ImageEntity();
 		ProxyImage imgProxy = new ProxyImage(image);
