@@ -43,6 +43,11 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
 	@Test
+	public void test_Expression() {
+
+	}
+
+	// @Test
 	public void test_command() {
 		Stock abcStock = new Stock();
 
