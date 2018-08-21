@@ -15,6 +15,7 @@ import com.vincent.design.behavioral_pattern.command_pattern.SellStock;
 import com.vincent.design.behavioral_pattern.command_pattern.Stock;
 import com.vincent.design.behavioral_pattern.iterator_pattern.Iterator;
 import com.vincent.design.behavioral_pattern.iterator_pattern.NameRepsitory;
+import com.vincent.design.behavioral_pattern.mediator_pattern.User;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -44,15 +45,22 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
+	@Test
+	public void test_mediator() {
+		User robert = new User("Robert");
+		User john = new User("John");
+		robert.sendMessage("Hi! John!");
+		john.sendMessage("Hello! Robert!");
+	}
 
 	@Test
 	public void test_Iterator() {
 
-		NameRepsitory nameRepsitory=new NameRepsitory();
-		for (Iterator iterato=nameRepsitory.getIterator();iterato.hasNext();) {
+		NameRepsitory nameRepsitory = new NameRepsitory();
+		for (Iterator iterato = nameRepsitory.getIterator(); iterato.hasNext();) {
 			System.out.println(iterato.next());
 		}
-		
+
 	}
 
 	// @Test
