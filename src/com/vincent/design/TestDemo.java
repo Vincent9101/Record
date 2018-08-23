@@ -5,6 +5,12 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.vincent.design.bahaivoral_pattern.memento_pattern.CareTaker;
+import com.vincent.design.bahaivoral_pattern.memento_pattern.Originator;
+import com.vincent.design.bahaivoral_pattern.observer_pattern.BinaryObserver;
+import com.vincent.design.bahaivoral_pattern.observer_pattern.HexObserver;
+import com.vincent.design.bahaivoral_pattern.observer_pattern.OctalObserver;
+import com.vincent.design.bahaivoral_pattern.observer_pattern.Subject;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -46,6 +52,39 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
 	@Test
+	public void test_observer() {
+		Subject subject = new Subject();
+
+		new HexObserver(subject);
+		new OctalObserver(subject);
+		new BinaryObserver(subject);
+
+		System.out.println("First state change: 15");
+		subject.setState(15);
+		System.out.println("Second state change: 10");
+		subject.setState(10);
+	}
+
+	// @Test
+	public void test_memento() {
+		Originator originator = new Originator();
+		CareTaker careTaker = new CareTaker();
+		originator.setState("State #1");
+		originator.setState("State #2");
+		careTaker.add(originator.saveStateToMemento());
+		originator.setState("State #3");
+		careTaker.add(originator.saveStateToMemento());
+		originator.setState("State #4");
+
+		System.out.println("Current State: " + originator.getState());
+		originator.recovery(careTaker.get(0));
+		System.out.println("First saved State: " + originator.getState());
+		originator.recovery(careTaker.get(1));
+		System.out.println("Second saved State: " + originator.getState());
+
+	}
+
+	// @Test
 	public void test_mediator() {
 		User robert = new User("Robert");
 		User john = new User("John");
@@ -53,7 +92,7 @@ public class TestDemo {
 		john.sendMessage("Hello! Robert!");
 	}
 
-	@Test
+//	@Test
 	public void test_Iterator() {
 
 		NameRepsitory nameRepsitory = new NameRepsitory();
