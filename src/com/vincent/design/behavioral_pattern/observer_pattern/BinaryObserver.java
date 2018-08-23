@@ -1,4 +1,4 @@
-package com.vincent.design.bahaivoral_pattern.observer_pattern;
+package com.vincent.design.behavioral_pattern.observer_pattern;
 
 public class BinaryObserver extends Observer {
 

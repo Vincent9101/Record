@@ -1,4 +1,4 @@
-package com.vincent.design.bahaivoral_pattern.interpreter_pattern;
+package com.vincent.design.behavioral_pattern.interpreter_pattern;
 
 public interface Expression {
 

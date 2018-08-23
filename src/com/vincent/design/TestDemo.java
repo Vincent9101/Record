@@ -5,12 +5,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.vincent.design.bahaivoral_pattern.memento_pattern.CareTaker;
-import com.vincent.design.bahaivoral_pattern.memento_pattern.Originator;
-import com.vincent.design.bahaivoral_pattern.observer_pattern.BinaryObserver;
-import com.vincent.design.bahaivoral_pattern.observer_pattern.HexObserver;
-import com.vincent.design.bahaivoral_pattern.observer_pattern.OctalObserver;
-import com.vincent.design.bahaivoral_pattern.observer_pattern.Subject;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -22,6 +16,12 @@ import com.vincent.design.behavioral_pattern.command_pattern.Stock;
 import com.vincent.design.behavioral_pattern.iterator_pattern.Iterator;
 import com.vincent.design.behavioral_pattern.iterator_pattern.NameRepsitory;
 import com.vincent.design.behavioral_pattern.mediator_pattern.User;
+import com.vincent.design.behavioral_pattern.memento_pattern.CareTaker;
+import com.vincent.design.behavioral_pattern.memento_pattern.Originator;
+import com.vincent.design.behavioral_pattern.observer_pattern.BinaryObserver;
+import com.vincent.design.behavioral_pattern.observer_pattern.HexObserver;
+import com.vincent.design.behavioral_pattern.observer_pattern.OctalObserver;
+import com.vincent.design.behavioral_pattern.observer_pattern.Subject;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;

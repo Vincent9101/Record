@@ -56,9 +56,9 @@ tags:
 
  - ### 单例模式（singleton pattern）    
  一个类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象
-  1. 不支持线程的懒汉单例模式 
+1. 不支持线程的懒汉单例模式
 ```java
-  public class Singleton_unsupport_multithread {
+public class Singleton_unsupport_multithread {
 
 	private Singleton_unsupport_multithread() {
 		// TODO Auto-generated constructor stub
@@ -77,41 +77,43 @@ tags:
 
 	public void println() {
 		System.out.println("In unsupport_multithread");
-    	}
-    }
-``` 
-  2. 支持多线程的懒汉单例模式
+	}
 
+}
+
+```
+2. 支持多线程的懒汉单例模式
 ```java
-      public class Singleton_support_multithread {
+public class Singleton_support_multithread {
 
-    	private Singleton_support_multithread() {
-	    	// TODO Auto-generated constructor stub
-    	}
+	private Singleton_support_multithread() {
+		// TODO Auto-generated constructor stub
+	}
 
-	    private static volatile Singleton_support_multithread instance;
+	private static volatile Singleton_support_multithread instance;
 
-	    /**
-	     * 第一个判断可以减少锁住对象的情况 如果不为空直接返回 效率更高 
-	     * 第二个判断就是懒加载的判断
-	     * @return
-	     */
-	    public static Singleton_support_multithread getInstance() {
-		    if (instance == null) {
-		    	synchronized (Singleton_support_multithread.class) {
-			    	if (instance == null)
-				    	instance = new Singleton_support_multithread();
-			    }
-		    }
+	/**
+	 * 第一个判断可以减少锁住对象的情况 如果不为空直接返回 效率更高 
+	 * 第二个判断就是懒加载的判断
+	 * 
+	 * @return
+	 */
+	public static Singleton_support_multithread getInstance() {
+		if (instance == null) {
+			synchronized (Singleton_support_multithread.class) {
+				if (instance == null)
+					instance = new Singleton_support_multithread();
+			}
+		}
 
-	    	return instance;
-	    }
-    
-    }
- ```
-  3. 饿汉模式
+		return instance;
+	}
 
- ```java
+}
+
+```
+3. 饿汉单例模式
+```java
 /**
  * 
  * @author Vincent
@@ -136,9 +138,7 @@ public class Singleton_hungry_man {
 }
 
 ```
-
-  4. 登记注册式
- 
+4. 登记注册单例模式
 ```java
 /**
  * 
@@ -165,22 +165,28 @@ public class Singleton_register {
 
 }
 
- ```
- 5. 枚举单例式
- ```java
-/** @author Vincent * 讲道理哦 这个方式最方便的单例模式 
-*利用枚举 自带支持 序列化机制  防止反序列化多次创建对象 可以适应多线程 然而却不怎么受待见 大多数人 
-*不用这个方式 可能和习惯有关系吧 = = 
-*
-*/
-    public enum Singleton_enum {
-        Instance; 
-    }
- ```
+```
+
+5. 枚举单例模式
+```java
+/**
+ * 
+ * @author Vincent
+ * 讲道理哦 这个方式最方便的单例模式 
+ * 利用枚举 自带支持 序列化机制  防止反序列化多次创建对象 可以适应多线程 然而却不怎么受待见 大多数人不用这个方式 可能和习惯有关系吧 = =   
+ *
+ */
+public enum Singleton_enum {
+		
+	Instance;
+	
+}
+
+```
 
  
 
-- ### 建造者模式（builder pattern）
+ - ### 建造者模式（builder pattern）
 
     使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。值得一说的是感觉是这个设计模式 感觉更加注重内部对象的细节，内部零件装配的顺序。
 

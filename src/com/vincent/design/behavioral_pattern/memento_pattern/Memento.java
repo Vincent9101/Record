@@ -1,4 +1,4 @@
-package com.vincent.design.bahaivoral_pattern.memento_pattern;
+package com.vincent.design.behavioral_pattern.memento_pattern;
 /**
  * 
  * @author Vincent
