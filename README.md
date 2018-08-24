@@ -43,13 +43,13 @@ update: {time.now}
     隐藏创建的对象的逻辑，通过共同对的接口创建对象。
     实现demo结构如下图,实现demo代码点这里[这是我学习的时候写的demo][1]  
 	
-	![factory_pattern](https://github.com/Vincent9101/design-pattern/tree/master/assets/img/factory_pattern.png)
+	![factory_pattern](https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/factory_pattern.png)
 
  - ### 抽象工厂模式（abstract factory pattern）
 
    这个模式是工厂的共工厂 叫超级工厂模式还比较贴切，在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象.
 
-   ![abstract_factory_pattern]    (https://github.com/Vincent9101/design-pattern/tree/master/assets/img/abstract_factory_pattern.png)
+ ![abstract_factory_pattern](https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模模/abstract_factory_pattern.png)
 
  - ### 单例模式（singleton pattern）    
  一个类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象
@@ -277,7 +277,7 @@ public enum Singleton_enum {
 
 
   [1]: https://github.com/Vincent9101/desgin-pattern
-  [2]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/装饰器模式.jpg
-  [3]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/适配器模式.jpg
-  [4]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/桥接模式.jpg
-  [5]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/代理模式.jpg
+  [2]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/装饰器模式.jpg
+  [3]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/适配器模式.jpg
+  [4]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/桥接模式.jpg
+  [5]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/代理模式.jpg
