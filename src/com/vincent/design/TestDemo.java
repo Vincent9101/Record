@@ -18,6 +18,8 @@ import com.vincent.design.behavioral_pattern.iterator_pattern.NameRepsitory;
 import com.vincent.design.behavioral_pattern.mediator_pattern.User;
 import com.vincent.design.behavioral_pattern.memento_pattern.CareTaker;
 import com.vincent.design.behavioral_pattern.memento_pattern.Originator;
+import com.vincent.design.behavioral_pattern.null_object_pattern.AbstractCustomer;
+import com.vincent.design.behavioral_pattern.null_object_pattern.CustomerFactory;
 import com.vincent.design.behavioral_pattern.observer_pattern.BinaryObserver;
 import com.vincent.design.behavioral_pattern.observer_pattern.HexObserver;
 import com.vincent.design.behavioral_pattern.observer_pattern.OctalObserver;
@@ -56,6 +58,22 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 public class TestDemo {
 
 	@Test
+	public void test_null_object() {
+
+		AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");
+		AbstractCustomer customer2 = CustomerFactory.getCustomer("Bob");
+		AbstractCustomer customer3 = CustomerFactory.getCustomer("Julie");
+		AbstractCustomer customer4 = CustomerFactory.getCustomer("Laura");
+
+		System.out.println("Customers");
+		System.out.println(customer1.getName());
+		System.out.println(customer2.getName());
+		System.out.println(customer3.getName());
+		System.out.println(customer4.getName());
+
+	}
+
+	// @Test
 	public void test_state() {
 		Context context = new Context();
 		new StartState().doAction(context);
