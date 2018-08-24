@@ -2,8 +2,7 @@
 title: java设计模式
 date: 2018-08-23 14:45:47
 tags: java
-catagories: article
-update: {time.now}
+catagories: article  
 ---
  #  设计模式的的六大原则:
    学习设计模式之前最好先了解一下设计模式的设计原则：
