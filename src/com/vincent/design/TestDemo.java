@@ -22,6 +22,9 @@ import com.vincent.design.behavioral_pattern.observer_pattern.BinaryObserver;
 import com.vincent.design.behavioral_pattern.observer_pattern.HexObserver;
 import com.vincent.design.behavioral_pattern.observer_pattern.OctalObserver;
 import com.vincent.design.behavioral_pattern.observer_pattern.Subject;
+import com.vincent.design.behavioral_pattern.state_pattern.Context;
+import com.vincent.design.behavioral_pattern.state_pattern.StartState;
+import com.vincent.design.behavioral_pattern.state_pattern.StopState;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -51,7 +54,17 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
+
 	@Test
+	public void test_state() {
+		Context context = new Context();
+		new StartState().doAction(context);
+		System.out.println(context.getState().toString());
+		new StopState().doAction(context);
+		System.out.println(context.getState().toString());
+	}
+
+	// @Test
 	public void test_observer() {
 		Subject subject = new Subject();
 
@@ -92,7 +105,7 @@ public class TestDemo {
 		john.sendMessage("Hello! Robert!");
 	}
 
-//	@Test
+	// @Test
 	public void test_Iterator() {
 
 		NameRepsitory nameRepsitory = new NameRepsitory();
