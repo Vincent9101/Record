@@ -43,7 +43,7 @@ tags:
     
     实现demo结构如下图,实现demo代码点这里[这是我学习的时候写的demo][1]
     
-    ![clipboard.png](./assets/img/bVbfibS)
+    ![clipboard.png](/assets/img/bVbfibS)
     
     
  - ### 抽象工厂模式（abstract factory pattern）
@@ -52,7 +52,7 @@ tags:
 
 
 
-![clipboard.png](./assets/img/bVbfj40)
+![clipboard.png](/assets/img/bVbfj40)
 
  - ### 单例模式（singleton pattern）    
  一个类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象
@@ -265,13 +265,13 @@ public enum Singleton_enum {
 - ## J2EE设计模式（behavioral pattern）    
     这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。
     
-  ![clipboard.png](./assets/代理模式.jpg)
+  ![clipboard.png](/assets/代理模式.jpg)
 
 # 待续。。。
 
 
   [1]: https://github.com/restoflife/desgin-pattern
-  [2]: ./assets/img/bVbfuJT
-  [3]: ./assets/img/bVbfuJ3
-  [4]: ./assets/img/bVbfu8s
-  [5]: ./assets/img/bVbfCAU
+  [2]: /assets/img/bVbfuJT
+  [3]: /assets/img/bVbfuJ3
+  [4]: /assets/img/bVbfu8s
+  [5]: /assets/img/bVbfCAU
