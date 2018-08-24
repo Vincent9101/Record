@@ -1,7 +1,9 @@
 ---
 title: java设计模式
 date: 2018-08-23 14:45:47
-tags:
+tags: java
+catagories: article
+update: {time.now}
 ---
  #  设计模式的的六大原则:
    学习设计模式之前最好先了解一下设计模式的设计原则：
@@ -15,7 +17,7 @@ tags:
   可以简单理解为派生类与基类的替换关系，一旦程序中出现基类，那么这个基类若是呗派生类替换了，也应该是合适的，并且对程序功能不受影响，该原则实际上是开闭原则的补充。 基类能真正复用，派生类也能够在基类的基础上增加新的行为。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。
 
 **3. 依赖倒转原则（dependence inverse principle）**
-
+****
 这个原则是开闭原则的基础，具体内容：针对接口编程，依赖于抽象而不依赖于具体。
 
 **4. 接口隔离原则（Interface Segregation Principle）**
@@ -39,20 +41,15 @@ tags:
  - ### 工厂模式（factory pattern）
 
     隐藏创建的对象的逻辑，通过共同对的接口创建对象。
-    
-    
-    实现demo结构如下图,实现demo代码点这里[这是我学习的时候写的demo][1]
-    
-    ![clipboard.png](/assets/img/bVbfibS)
-    
-    
+    实现demo结构如下图,实现demo代码点这里[这是我学习的时候写的demo][1]  
+	
+	![factory_pattern](https://github.com/Vincent9101/design-pattern/tree/master/assets/img/factory_pattern.png)
+
  - ### 抽象工厂模式（abstract factory pattern）
 
-   这个模式是工厂的共工厂 叫超级工厂模式还比较贴切，在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象。
+   这个模式是工厂的共工厂 叫超级工厂模式还比较贴切，在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象.
 
-
-
-![clipboard.png](/assets/img/bVbfj40)
+   ![abstract_factory_pattern]    (https://github.com/Vincent9101/design-pattern/tree/master/assets/img/abstract_factory_pattern.png)
 
  - ### 单例模式（singleton pattern）    
  一个类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象
@@ -62,7 +59,7 @@ public class Singleton_unsupport_multithread {
 
 	private Singleton_unsupport_multithread() {
 		// TODO Auto-generated constructor stub
-	}
+	**}
 
 	private static Singleton_unsupport_multithread instance;
 
@@ -202,11 +199,11 @@ public enum Singleton_enum {
     这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。
     
 - ### 适配器模式（adapter pattern）
-    将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。
-    ![图片描述][2]
+    将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。  
+	![adapter_pattern][2]
 - ### 桥接模式（bridge pattern）
-    是用于把抽象化与实现化解耦，使得二者可以独立变化，目的就是为了抽象与实现分离，都可以有独立的变化，用抽象类依赖实现类来实现。
-    ![图片描述][3]
+    是用于把抽象化与实现化解耦，使得二者可以独立变化，目的就是为了抽象与实现分离，都可以有独立的变化，用抽象类依赖实现类来实现。  
+	![bridge_pattern][3]
     
  *这里简单说一下桥接模式与适配器模式的**区别**：从名字来理解比较容易理解，适配器嘛 那就是已经有了一些功能类，但是需要一个新的功能，这个时候没必要写重复的或者说现在有可重用的功能，就需要适配器了，打个比方，你现在有一个type-c接口的手机，还有一个圆孔耳机，手机是可以没必要再“钻”一个圆孔耳机孔，而耳机也不能锤扁为type-c，这个时候type-c转接头就来了，这就是一个适配器；**但是桥接模式中**，有一个根本的区别就是**桥接模式一开始设计就是这样的架构**，是为了可扩展，而不是**设配器模式是为了解决问题而诞生的**，这是一种设计最初就存在的模式，桥接模式一般是一个抽象实体类，然后内部拥有功能接口的引用，这种结构很方便功能实现类的扩展，还有实体类的扩展。*
 
@@ -219,7 +216,7 @@ public enum Singleton_enum {
 - ### 装饰器模式（decorator pattern）
     允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。
     这种模式创建了一个装饰类，用来包装原有的类，并在保持类方法签名完整性的前提下，提供了额外的功能。
-    ![图片描述][4]
+    ![decoration_pattern][4]
     
    
 
@@ -235,8 +232,7 @@ public enum Singleton_enum {
      1.一般与工厂模式混合使用，便于对象的管理
 - ### 代理模式（proxy pattern）
     在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口，为其他对象提供一个代理以控制对这个对象的访问。主要是为了隐藏被代理类的内部实现。
-    
-    ![图片描述][5]
+    ![proxy_pattern][5]
 
     
 ----------
@@ -259,19 +255,29 @@ public enum Singleton_enum {
     当对象存在一对多的关系时候，比如：一个对象被修改的时候，就会通知他它的依赖对象。<br/>
     实现方式：在抽象类里使用观察者列表。  
 
-    **注意事项:** 使用的时候不要循环引用
+    **注意:** 使用的时候不要循环引用
+- ### 状态模式(state pattern )
+	类的行为是根据其状态而定的，在状态模式中,通常创建的表示状态的对象和一个行为随着状态对象改变而改变的context对象。  
+	允许对象在内部状态发生改变的时候改变它的行为。
+- ### 空对象模式(null object pattern)
+	一个可能空对象取代null对象的例的检查，null对象不是检查空值,而是反应一个不做任何动作的关系，这样的null对象也可以在数据不可用的时候提供默认的行为。  
+	空对象模式中，通常创建一个指定各种要执行的操作的抽象类和扩展该类的实体类，然后创建未对该类做任何实现的空对象类，该类可以无缝的使用在需要检查空值的地方。
 
-    
-- ## J2EE设计模式（behavioral pattern）    
+ - ### 策略模式(strategy pattern)
+	该模式中，一个类的行为和算法可以运行时更改.  
+	一般会创建表示各种策略的对象和一个随着策略对象改变的context,策略对象改变context对象的执行  算法。  
+	**注意：** 策略模式与状态模式很相似，其中主要的差别在于，策略模式有着暴露给使用者策略改变的这样的实现策略，但是状态模式中，每一个状态类里都要与一个context进行关联，从而改变状态.
+	
+- ## J2EE设计模式    
     这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。
     
-  ![clipboard.png](/assets/代理模式.jpg)
+
 
 # 待续。。。
 
 
-  [1]: https://github.com/restoflife/desgin-pattern
-  [2]: /assets/img/bVbfuJT
-  [3]: /assets/img/bVbfuJ3
-  [4]: /assets/img/bVbfu8s
-  [5]: /assets/img/bVbfCAU
+  [1]: https://github.com/Vincent9101/desgin-pattern
+  [2]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/装饰器模式.jpg
+  [3]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/适配器模式.jpg
+  [4]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/桥接模式.jpg
+  [5]: https://github.com/Vincent9101/design-pattern/tree/master/assets/img/代理模式.jpg
