@@ -27,6 +27,9 @@ import com.vincent.design.behavioral_pattern.observer_pattern.Subject;
 import com.vincent.design.behavioral_pattern.state_pattern.Context;
 import com.vincent.design.behavioral_pattern.state_pattern.StartState;
 import com.vincent.design.behavioral_pattern.state_pattern.StopState;
+import com.vincent.design.behavioral_pattern.template_pattern.Cricket;
+import com.vincent.design.behavioral_pattern.template_pattern.Football;
+import com.vincent.design.behavioral_pattern.template_pattern.Game;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -56,6 +59,15 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
+
+	@Test
+	public void test_template() {
+		Game game = new Cricket();
+		game.play();
+		System.out.println();
+		game = new Football();
+		game.play();
+	}
 
 	@Test
 	public void test_null_object() {
