@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.vincent.design.MVC_pattern.Student;
+import com.vincent.design.MVC_pattern.StudentController;
+import com.vincent.design.MVC_pattern.StudentView;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -30,7 +33,6 @@ import com.vincent.design.behavioral_pattern.state_pattern.StopState;
 import com.vincent.design.behavioral_pattern.template_pattern.Cricket;
 import com.vincent.design.behavioral_pattern.template_pattern.Football;
 import com.vincent.design.behavioral_pattern.template_pattern.Game;
-import com.vincent.design.behavioral_pattern.visitor_pattern.ComputerPart;
 import com.vincent.design.behavioral_pattern.visitor_pattern.ComputerPartDisplayVisitor;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
@@ -61,7 +63,32 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
+
+	private Student retriveStudentFromDatabase() {
+		Student student = new Student();
+		student.setName("Robert");
+		student.setRollNo("10");
+		return student;
+	}
 	@Test
+	public void test_MVC() {
+		// 从数据库获取学生记录
+		Student model = retriveStudentFromDatabase();
+
+		// 创建一个视图：把学生详细信息输出到控制台
+		StudentView view = new StudentView();
+
+		StudentController controller = new StudentController(model, view);
+
+		controller.updateView();
+
+		// 更新模型数据
+		controller.setStudentName("John");
+
+		controller.updateView();
+	}
+
+	// @Test
 	public void test_visitor() {
 		com.vincent.design.behavioral_pattern.visitor_pattern.Computer computer = new com.vincent.design.behavioral_pattern.visitor_pattern.Computer();
 		computer.accept(new ComputerPartDisplayVisitor());
