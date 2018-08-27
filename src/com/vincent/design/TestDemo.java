@@ -30,6 +30,8 @@ import com.vincent.design.behavioral_pattern.state_pattern.StopState;
 import com.vincent.design.behavioral_pattern.template_pattern.Cricket;
 import com.vincent.design.behavioral_pattern.template_pattern.Football;
 import com.vincent.design.behavioral_pattern.template_pattern.Game;
+import com.vincent.design.behavioral_pattern.visitor_pattern.ComputerPart;
+import com.vincent.design.behavioral_pattern.visitor_pattern.ComputerPartDisplayVisitor;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.AbstractFactory;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.Color;
 import com.vincent.design.creational_pattern.abstract_factory_pattern.FactoryProducer;
@@ -59,8 +61,13 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
-
 	@Test
+	public void test_visitor() {
+		com.vincent.design.behavioral_pattern.visitor_pattern.Computer computer = new com.vincent.design.behavioral_pattern.visitor_pattern.Computer();
+		computer.accept(new ComputerPartDisplayVisitor());
+	}
+
+	// @Test
 	public void test_template() {
 		Game game = new Cricket();
 		game.play();
@@ -69,7 +76,7 @@ public class TestDemo {
 		game.play();
 	}
 
-	@Test
+	// @Test
 	public void test_null_object() {
 
 		AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");

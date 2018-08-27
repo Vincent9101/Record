@@ -1,6 +1,5 @@
 package com.vincent.design.structural_pattern.facade_pattern;
 
-import java.lang.management.MemoryUsage;
 
 public class Computer {
 
@@ -26,5 +25,7 @@ public class Computer {
 		disk.shutDown();
 		memory.shutDown();
 	}
+
+	
 
 }
