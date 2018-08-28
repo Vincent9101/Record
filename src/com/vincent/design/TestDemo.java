@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.vincent.design.J2EE.DAO_pattern.StudentDao;
+import com.vincent.design.J2EE.DAO_pattern.StudentDaoImpl;
 import com.vincent.design.J2EE.MVC_pattern.Student;
 import com.vincent.design.J2EE.MVC_pattern.StudentController;
 import com.vincent.design.J2EE.MVC_pattern.StudentView;
@@ -67,6 +69,25 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 public class TestDemo {
 
 	@Test
+	public void test_DAO() {
+		StudentDao studentDao = new StudentDaoImpl();
+
+		// 输出所有的学生
+		for (com.vincent.design.J2EE.DAO_pattern.Student student : studentDao.getAllStudents()) {
+			System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+		}
+
+		// 更新学生
+		com.vincent.design.J2EE.DAO_pattern.Student student = studentDao.getAllStudents().get(0);
+		student.setName("Michael");
+		studentDao.updateStudent(student);
+
+		// 获取学生
+		studentDao.getStudent(0);
+		System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+		}
+
+	// @Test
 	public void test_composite() {
 
 		com.vincent.design.J2EE.composite_pattern.Client client = new com.vincent.design.J2EE.composite_pattern.Client();
@@ -76,7 +97,7 @@ public class TestDemo {
 		client.printData();
 	}
 
-//	@Test
+	// @Test
 	public void test_business_delegate() {
 		BusinessDelegate businessDelegate = new BusinessDelegate();
 		businessDelegate.setServiceType("EJB");
