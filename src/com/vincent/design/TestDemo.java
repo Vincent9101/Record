@@ -17,6 +17,8 @@ import com.vincent.design.J2EE.intercepting_filter_pattern.AuthenticationFilter;
 import com.vincent.design.J2EE.intercepting_filter_pattern.DebugFilter;
 import com.vincent.design.J2EE.intercepting_filter_pattern.FilterManager;
 import com.vincent.design.J2EE.intercepting_filter_pattern.Target;
+import com.vincent.design.J2EE.service_locator_pattern.Service;
+import com.vincent.design.J2EE.service_locator_pattern.ServiceLocator;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -72,13 +74,24 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
-
 	@Test
+	public void test_service_locator() {
+		Service service = ServiceLocator.getService("Service1");
+		service.execute();
+		service = ServiceLocator.getService("Service2");
+		service.execute();
+		service = ServiceLocator.getService("Service1");
+		service.execute();
+		service = ServiceLocator.getService("Service2");
+		service.execute();
+	}
+
+	// @Test
 	public void test_interceping_filter() {
 		FilterManager filterManager = new FilterManager(new Target());
 		filterManager.setFilter(new AuthenticationFilter());
 		filterManager.setFilter(new DebugFilter());
-com.vincent.design.J2EE.intercepting_filter_pattern.Client client = new com.vincent.design.J2EE.intercepting_filter_pattern.Client();
+		com.vincent.design.J2EE.intercepting_filter_pattern.Client client = new com.vincent.design.J2EE.intercepting_filter_pattern.Client();
 		client.setFilterManager(filterManager);
 		client.sendRequest("HOME");
 	}
