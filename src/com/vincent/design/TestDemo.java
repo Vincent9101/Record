@@ -13,6 +13,10 @@ import com.vincent.design.J2EE.MVC_pattern.StudentView;
 import com.vincent.design.J2EE.business_delegate_pattern.BusinessDelegate;
 import com.vincent.design.J2EE.business_delegate_pattern.Client;
 import com.vincent.design.J2EE.front_controller_pattern.FrontController;
+import com.vincent.design.J2EE.intercepting_filter_pattern.AuthenticationFilter;
+import com.vincent.design.J2EE.intercepting_filter_pattern.DebugFilter;
+import com.vincent.design.J2EE.intercepting_filter_pattern.FilterManager;
+import com.vincent.design.J2EE.intercepting_filter_pattern.Target;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -68,7 +72,18 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
+
 	@Test
+	public void test_interceping_filter() {
+		FilterManager filterManager = new FilterManager(new Target());
+		filterManager.setFilter(new AuthenticationFilter());
+		filterManager.setFilter(new DebugFilter());
+com.vincent.design.J2EE.intercepting_filter_pattern.Client client = new com.vincent.design.J2EE.intercepting_filter_pattern.Client();
+		client.setFilterManager(filterManager);
+		client.sendRequest("HOME");
+	}
+
+	// @Test
 	public void test_front_controller() {
 		FrontController frontController = new FrontController();
 		frontController.dispatchRequest("HOME");

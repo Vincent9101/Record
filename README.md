@@ -1,21 +1,3 @@
----
-title: java设计模式
-date: 2018-08-23 14:45:47
-tags: java
-catagories: article
-cover: http://oxnuwmm3w.bkt.clouddn.com/hello-world.jpeg
-author: 
-  nick: Vincent
-  link: bloger.top
-
-# 如果文章为转载文章，需要多加文章出处项
-editor:
-  name: Vincent
-  link: https://bloger.top
-
-# 首页每篇文章的子标题
-subtitle: java设计模式
----
  #  设计模式的的六大原则:
    学习设计模式之前最好先了解一下设计模式的设计原则：
 
