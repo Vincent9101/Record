@@ -12,6 +12,7 @@ import com.vincent.design.J2EE.MVC_pattern.StudentController;
 import com.vincent.design.J2EE.MVC_pattern.StudentView;
 import com.vincent.design.J2EE.business_delegate_pattern.BusinessDelegate;
 import com.vincent.design.J2EE.business_delegate_pattern.Client;
+import com.vincent.design.J2EE.front_controller_pattern.FrontController;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -67,8 +68,14 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
-
 	@Test
+	public void test_front_controller() {
+		FrontController frontController = new FrontController();
+		frontController.dispatchRequest("HOME");
+		frontController.dispatchRequest("STUDENT");
+	}
+
+	// @Test
 	public void test_DAO() {
 		StudentDao studentDao = new StudentDaoImpl();
 
@@ -85,7 +92,7 @@ public class TestDemo {
 		// 获取学生
 		studentDao.getStudent(0);
 		System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
-		}
+	}
 
 	// @Test
 	public void test_composite() {
