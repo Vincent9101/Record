@@ -19,6 +19,8 @@ import com.vincent.design.J2EE.intercepting_filter_pattern.FilterManager;
 import com.vincent.design.J2EE.intercepting_filter_pattern.Target;
 import com.vincent.design.J2EE.service_locator_pattern.Service;
 import com.vincent.design.J2EE.service_locator_pattern.ServiceLocator;
+import com.vincent.design.J2EE.transefer_object_pattern.StudentBO;
+import com.vincent.design.J2EE.transefer_object_pattern.StudentVO;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -74,7 +76,27 @@ import com.vincent.design.structural_pattern.proxy_pattern.ImageEntity;
 import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
+
 	@Test
+	public void test_transfer_object() {
+		StudentBO studentBusinessObject = new StudentBO();
+
+		// 输出所有的学生
+		for (StudentVO student : studentBusinessObject.getAllStudents()) {
+			System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+		}
+
+		// 更新学生
+		StudentVO student = studentBusinessObject.getAllStudents().get(0);
+		student.setName("Michael");
+		studentBusinessObject.updateStudent(student);
+
+		// 获取学生
+		studentBusinessObject.getStudent(0);
+		System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
+	}
+
+	// @Test
 	public void test_service_locator() {
 		Service service = ServiceLocator.getService("Service1");
 		service.execute();
