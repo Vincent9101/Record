@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.vincent.design.MVC_pattern.Student;
-import com.vincent.design.MVC_pattern.StudentController;
-import com.vincent.design.MVC_pattern.StudentView;
+import com.vincent.design.J2EE.MVC_pattern.Student;
+import com.vincent.design.J2EE.MVC_pattern.StudentController;
+import com.vincent.design.J2EE.MVC_pattern.StudentView;
+import com.vincent.design.J2EE.business_delegate_pattern.BusinessDelegate;
+import com.vincent.design.J2EE.business_delegate_pattern.Client;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.AbstractLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ConsoleLogger;
 import com.vincent.design.behavioral_pattern.chain_of_resonsibility_pattern.ErrorLogger;
@@ -64,13 +66,26 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 
 public class TestDemo {
 
+	@Test
+	public void test_business_delegate() {
+		BusinessDelegate businessDelegate = new BusinessDelegate();
+		businessDelegate.setServiceType("EJB");
+
+		Client client = new Client(businessDelegate);
+		client.doTask();
+
+		businessDelegate.setServiceType("JMS");
+		client.doTask();
+	}
+
 	private Student retriveStudentFromDatabase() {
 		Student student = new Student();
 		student.setName("Robert");
 		student.setRollNo("10");
 		return student;
 	}
-	@Test
+
+	// @Test
 	public void test_MVC() {
 		// 从数据库获取学生记录
 		Student model = retriveStudentFromDatabase();

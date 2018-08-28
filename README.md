@@ -2,7 +2,19 @@
 title: java设计模式
 date: 2018-08-23 14:45:47
 tags: java
-catagories: article  
+catagories: article
+cover: http://oxnuwmm3w.bkt.clouddn.com/hello-world.jpeg
+author: 
+  nick: Vincent
+  link: bloger.top
+
+# 如果文章为转载文章，需要多加文章出处项
+editor:
+  name: Vincent
+  link: https://bloger.top
+
+# 首页每篇文章的子标题
+subtitle: java设计模式
 ---
  #  设计模式的的六大原则:
    学习设计模式之前最好先了解一下设计模式的设计原则：
@@ -25,7 +37,7 @@ catagories: article
 
 **5.迪米特法则，又称最少知道原则（Demeter Principle）**
 
-一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。
+一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。v
 
 **6. 合成复用原则（Composite Reuse Principle）**
 尽量使用合成/聚合的方式，而不是使用继承。
@@ -40,15 +52,17 @@ catagories: article
  - ### 工厂模式（factory pattern）
 
     隐藏创建的对象的逻辑，通过共同对的接口创建对象。
-    实现demo结构如下图,实现demo代码点这里[这是我学习的时候写的demo][1]  
-	
-	![factory_pattern](https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/factory_pattern.png)
+    
+    
+    实现demo结构如下图,实现demo代码  
+	 [点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern)   
+
+	![factory_pattern](https://segmentfault.com/img/bVbfibS?w=560&h=325)
 
  - ### 抽象工厂模式（abstract factory pattern）
 
-   这个模式是工厂的共工厂 叫超级工厂模式还比较贴切，在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象.  
-   
-   ![abstract_factory_pattern](https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/abstract_factory_pattern.png)
+   这个模式是工厂的共工厂 叫超级工厂模式还比较贴切，在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象。  
+    ![abstract_factory_pattern](https://segmentfault.com/img/bVbfj40?w=560&h=437)
 
  - ### 单例模式（singleton pattern）    
  一个类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象
@@ -243,40 +257,56 @@ public enum Singleton_enum {
     请求创建了一个接收者对象的链。这种模式给予请求的类型，对请求的发送者和接收者进行解耦在这种模式中，通常每个接收者都包含对另一个接收者的引用。如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推。
  - ### 命令行模式（command pattern）
     一种数据驱动的设计模式，请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令
-- ### 解释模式（interpreter pattern）
+ - ### 解释模式（interpreter pattern）
     提供了余元的语法或表达式的方式，属于行为模式,这种模式实现了一个表达式接口，该接口解释一个特定的上下文，一般用于SQL解析，符号处理解析引擎之类。这个模式一般比较少见。
-- ### 迭代器模式（iterator pattern）
+ - ### 迭代器模式（iterator pattern）
     这个模式用于顺序访问集合对象的元素，而不需要知道底层对象的表示。
-- ### 中介者模式（mediator pattern）
+ - ### 中介者模式（mediator pattern）
     用于降低多个对象和类之间的通信复杂性。提供了中介类，这个中介类负责处理不同类之间的通信，使系统降耦合。
     适用场景：系统对象之间存在比较复杂的引用关系，导致他们之间的依赖关系结构混乱难以复用；或者想通过一个中间类封装多个类中的行为，而又不想生成太多的子类。
-- ### 观察者模式（observer pattern）
-    当对象存在一对多的关系时候，比如：一个对象被修改的时候，就会通知他它的依赖对象。<br/>
-    实现方式：在抽象类里使用观察者列表。  
+ - ### 观察者模式（observer pattern）
+    当对象存在一对多的关系时候，比如：一个对象被修改的时候，就会通知他它的依赖对象.  
+	实现方式：在抽象类里使用观察者列表。  
 
     **注意:** 使用的时候不要循环引用
-- ### 状态模式(state pattern )
+ - ### 状态模式(state pattern )
 	类的行为是根据其状态而定的，在状态模式中,通常创建的表示状态的对象和一个行为随着状态对象改变而改变的context对象。  
 	允许对象在内部状态发生改变的时候改变它的行为。
-- ### 空对象模式(null object pattern)
+ - ### 空对象模式(null object pattern)
 	一个可能空对象取代null对象的例的检查，null对象不是检查空值,而是反应一个不做任何动作的关系，这样的null对象也可以在数据不可用的时候提供默认的行为。  
 	空对象模式中，通常创建一个指定各种要执行的操作的抽象类和扩展该类的实体类，然后创建未对该类做任何实现的空对象类，该类可以无缝的使用在需要检查空值的地方。
 
  - ### 策略模式(strategy pattern)
 	该模式中，一个类的行为和算法可以运行时更改.  
 	一般会创建表示各种策略的对象和一个随着策略对象改变的context,策略对象改变context对象的执行  算法。  
-	**注意：** 策略模式与状态模式很相似，其中主要的差别在于，策略模式有着暴露给使用者策略改变的这样的实现策略，但是状态模式中，每一个状态类里都要与一个context进行关联，从而改变状态.
+	**注意：** 策略模式与状态模式很相似，其中主要的差别在于，策略模式有着暴露给使用者策略改变的这样的实现策略，但是状态模式中，每一个状态类里都要与一个context进行关联，从而改变状态.  
+ - ### 模板模式（template pattern）  
+	一个抽象的类公开定义其执行它的方法的方式模板，其子类需要重写方法实现，但是调用以抽象类中定义的方式调用。  
+	优点：封装不变的部分，扩招可变部分，提取公共代码便于维护。实现起来十分简单。  
+ - ### 访问者模式(vistor pattern)  
+	使用了一个访问者类，它改变了元素类的执行算法。通过这种方式，元素的执行算法可以随着访问者改变而改变，在需要对一个对象结构中的对象进行很多不同的并且不相关的操作，并且避免让这些操作"污染"这些对象的类，就可以使用访问者模式将这些封装到类中。 
+	目的：为了将数据结构与数据操作分离。
+  
 	
-- ## J2EE设计模式    
-    这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。
-    
+ - ## J2EE设计模式    
+    这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。  
+ - ### MVC模式(Model-View-Cotroller)  
+    Model:模型代表一个存储数据的对象，可以带有逻辑处理，用于数据变化的时候更新控制器。  
+	View:视图代表模式包含的数据可视化。  
+	Controller：控制器用于模型和视图上。控制数据流向模型对象，并且在数据变化的时候更新视图，使模型与视图分离开。
+ - ### 业务代表模式(business delegate pattern) 
+	用于业务层与表示层解耦。用来减少通信或对表示层代码中的业务层代码的远程查询功能。  
+	该模式有四个模块：  
+	- 客户端(client) ：表示层，用户端展示部分代码,交互响应的部分。  
+	- 业务代表(business delegate):作为客户端请求服务的委托，提供对业务方法的访问，可以理解为代理执行服务的类，提供客户都但访问的接口。  
+	- 查询服务(lookup service): 查询服务对象负责获取相关的业务实现，可以理解为“业务对象的工厂类”，然后提供服务对象。
+    - 业务接口（business service）：各种服务的抽象声明，便于业务事项的扩展与分类整合，为查询服务提供服务对象，实现该接口的类作为服务实现类，实现具体业务逻辑。
 
 
-# 待续。。。
+# 待续。
 
 
-  [1]: https://github.com/Vincent9101/desgin-pattern
-  [2]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/装饰器模式.jpg
-  [3]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/适配器模式.jpg
-  [4]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/桥接模式.jpg
-  [5]:https://github.com/Vincent9101/Vincent9101.github.io/blob/master/2018/08/23/java设计模式/代理模式.jpg
+  [2]: 装饰器模式.jpg
+  [3]: 适配器器模式.jpg
+  [4]: 桥接模式.jpg
+  [5]: 代理模式.jpg

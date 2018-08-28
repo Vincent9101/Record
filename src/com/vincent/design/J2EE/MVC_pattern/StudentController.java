@@ -1,4 +1,4 @@
-package com.vincent.design.MVC_pattern;
+package com.vincent.design.J2EE.MVC_pattern;
 
 /**
  * 
