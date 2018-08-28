@@ -31,10 +31,14 @@
  - ## 创建型模式（creational pattern）
    隐藏创建对象的创建逻辑，提供创建对象的接口，而非使用new关键字进行创建。
 
- - ### 工厂模式（factory pattern）  
-   隐藏创建的对象的逻辑，通过共同对的接口创建对象。实现demo结构如下图,实现demo代码  
-	![点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern)  
-	![factory_pattern](https://segmentfault.com/img/bVbfibS?w=560&h=325)
+ - ### 工厂模式（factory pattern）
+
+    隐藏创建的对象的逻辑，通过共同对的接口创建对象。
+
+    实现demo结构如下图,实现demo代码  
+	![点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern) 
+---
+![factory_pattern](https://segmentfault.com/img/bVbfibS?w=560&h=325)
 
  - ### 抽象工厂模式（abstract factory pattern）
 
@@ -277,13 +281,58 @@ public enum Singleton_enum {
 	- 客户端(client) ：表示层，用户端展示部分代码,交互响应的部分。  
 	- 业务代表(business delegate):作为客户端请求服务的委托，提供对业务方法的访问，可以理解为代理执行服务的类，提供客户都但访问的接口。  
 	- 查询服务(lookup service): 查询服务对象负责获取相关的业务实现，可以理解为“业务对象的工厂类”，然后提供服务对象。
-    - 业务接口（business service）：各种服务的抽象声明，便于业务事项的扩展与分类整合，为查询服务提供服务对象，实现该接口的类作为服务实现类，实现具体业务逻辑。
+    - 业务接口（business service）：各种服务的抽象声明，便于业务事项的扩展与分类整合，为查询服务提供服务对象，实现该接口的类作为服务实现类，实现具体业务逻辑。   
+ - ### 组合实体模式(composite entity pattern)  
+	用在 EJB 持久化机制中。一个组合实体是一个 EJB 实体 bean，代表了对象的图解。当更新一个组合实体时，内部依赖对象 beans 会自动更新，因为它们是由 EJB 实体 bean 管理的。以下是组合实体 bean 的参与者:  
+	- 组合实体（composite entity):主要的实体 bean。它可以是粗粒的，或者可以包含一个粗粒度对象，用于持续生命周期.  
+	- 粗粒度对象（coarse-grained object):该对象包含依赖对象，拥有自己的生命周期，可以管理依赖对象的声明周期。
+	- 依赖对象（dependent object）:依赖对象是一个持续声明周期依赖于粗粒度对象的对象。  
+	- 策略（strategies）：描述如何实现组合实体  
+ - ### 数据访问对象模式（data access object pattern)  
+    数据访问对象模式即DAO模式，用于把低级的数据访问API操作从高级的业务服务中分离出来。  
+	- 数据访问对象接口（data access object interface）定义在模型对象需要执行的操作标准。
+	- 数据访问对象实体类（data access object concrete class）用于实现上述接口,负责从数据源头中获取数据.  
+	- 模型对象/数值对象（model object)  
+	简单POJO对象，拥有get/set存储设置通过DAO类检索到的数据。  
+ - ### 前端控制器模式(front controller pattern)  
+	用来提供集中的请求控制处理机制，所有的请求都将由一个单一的处理程序处理。该程序可以做认证/授权/记录日志，或者跟踪请求，然后把请求转给相应的处理程序。  
+	- 前端控制器（front controller）处理应用程序所有的类型请求的单个处理程序，应用程序可以基于web，可以基于桌面。  
+	- 调度器（dispatcher） 
+	前端控制器可能使用一个调度器对象来调度请求对应的具体处理程序。  
+	- 视图（view)  
+	视图是为请求而创建的对象。
+ - ### 拦截过滤器模式（intercepting filter pattern)
+	用于对应用程序的请求或者响应做一些预处理或者说是后处理,定义过滤器，并在把请求传给实际目标应用程序之前应用在请求上。  
+	- 过滤器（filter）过滤器在请求处理程序之前或者之后，执行某些任务。  
+	- 过滤器链（filter chain）过滤器链带有多个过滤器，并在Target上按定义的顺序执行过滤器。
+	- Target  
+	Target对象是请求处理程序  
+	过滤管理器（filter manager）  
+	过滤管理器用于管理过滤和过滤器链。  
+	客户端（client）  
+	client是向Target对象发送请求的对象。   
+ - ### 服务器定位器模式(service locator pattern)  
+	当使用JNDI查询定位各种服务的时候，若查找JNDI服务的代价很高，服务定位器模式充分利用了，缓存技术。在首次启用某一个服务的时候,服务定位器会在JNDI中查找服务，并且缓存在服务对象里边，当再次请求相同的服务的时候，会从缓存中寻找该服务。  
+	- 服务(service)： 实际处理请求的服务，对这种服务的引用可以在JNDI服务器中查找到。  
+	- context/初始的context：JNDI context带有对要查找的服务的引用。  
+	- 服务器定位器(service locator)：服务定位器是通过JNDI查找缓存服务来获取服务的单点接触。  
+	- 缓存(cache)：缓存存储服务的引用，以便复用它们。  
+	- 客户端(client)：该对象通过service locator调用服务对象。  
+ - ### 传输对象模式(transfer object pattern)  
+	用于从客户端想服务器一次性传递带有多个属性的数据。传输对象又被称为数值对象，是具有getter与setter的的POJO类，可序列化，没有任何的行为。服务器端的业务类从数据库中读取数据填充POJO发送给客户端使用。对于客户端该对象是只读的，用户可以创建自己的传输对象传输给服务器，用于更新数据中的数值。  
+	- 业务对象(business object): 为传输对象填充数据的业务服务。  
+	- 传输对象(transfer object)：简单的POJO，只有getter与setter用来设置获取属性数据。  
+	- 客户端(client) ： 用来发送请求或者发送传输对象到业务对象。 
+	 
+	
 
+
+	
 
 # 待续。
 
 
-  [2]: assets/img/装饰器模式.jpg
-  [3]: assets/img/适配器器模式.jpg
-  [4]: assets/img/桥接模式.jpg
-  [5]: assets/img/代理模式.jpg
+  [2]: 装饰器模式.jpg
+  [3]: 适配器器模式.jpg
+  [4]: 桥接模式.jpg
+  [5]: 代理模式.jpg
