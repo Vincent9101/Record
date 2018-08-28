@@ -67,6 +67,16 @@ import com.vincent.design.structural_pattern.proxy_pattern.ProxyImage;
 public class TestDemo {
 
 	@Test
+	public void test_composite() {
+
+		com.vincent.design.J2EE.composite_pattern.Client client = new com.vincent.design.J2EE.composite_pattern.Client();
+		client.setData("Test", "Data");
+		client.printData();
+		client.setData("Second Test", "Data1");
+		client.printData();
+	}
+
+//	@Test
 	public void test_business_delegate() {
 		BusinessDelegate businessDelegate = new BusinessDelegate();
 		businessDelegate.setServiceType("EJB");

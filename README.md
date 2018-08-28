@@ -49,14 +49,9 @@ subtitle: java设计模式
  - ## 创建型模式（creational pattern）
    隐藏创建对象的创建逻辑，提供创建对象的接口，而非使用new关键字进行创建。
 
- - ### 工厂模式（factory pattern）
-
-    隐藏创建的对象的逻辑，通过共同对的接口创建对象。
-    
-    
-    实现demo结构如下图,实现demo代码  
-	![点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern)   
-
+ - ### 工厂模式（factory pattern）  
+   隐藏创建的对象的逻辑，通过共同对的接口创建对象。实现demo结构如下图,实现demo代码  
+	![点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern)  
 	![factory_pattern](https://segmentfault.com/img/bVbfibS?w=560&h=325)
 
  - ### 抽象工厂模式（abstract factory pattern）
