@@ -55,7 +55,7 @@ subtitle: java设计模式
     
     
     实现demo结构如下图,实现demo代码  
-	 [点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern)   
+	![点这里：这是我学习的时候写的demo](https://github.com/Vincent9101/desgin-pattern)   
 
 	![factory_pattern](https://segmentfault.com/img/bVbfibS?w=560&h=325)
 
@@ -306,7 +306,7 @@ public enum Singleton_enum {
 # 待续。
 
 
-  [2]: 装饰器模式.jpg
-  [3]: 适配器器模式.jpg
-  [4]: 桥接模式.jpg
-  [5]: 代理模式.jpg
+  [2]: assets/img/装饰器模式.jpg
+  [3]: assets/img/适配器器模式.jpg
+  [4]: assets/img/桥接模式.jpg
+  [5]: assets/img/代理模式.jpg
