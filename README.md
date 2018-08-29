@@ -1,2 +1,3 @@
 # Record
-java学习练手demo记录
+java各种倒腾学习记录 
+ps：由于每个项目太杂，没有用不同的repo，利用的当前repo的不同分支。
