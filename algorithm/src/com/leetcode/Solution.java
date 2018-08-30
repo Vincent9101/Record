@@ -6,38 +6,15 @@ public class Solution {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-/*//		addTwoNums
-		ListNode A, HeadA = A = new ListNode(1);
-		ListNode B, HeadB = B = new ListNode(0);
-		// for(int i=1;i<3;i++) {
-		// A.next=new ListNode(i);
-		// A=A.next;
-		// B.next=new ListNode(i+8);
-		// B=B.next;
-		// }
-		B.next = new ListNode(8);
-//		Solution test = new Solution();
-		test.printList(HeadA);
-		test.printList(HeadB);
-		test.printList(test.addTwoNumbers(HeadA, HeadB));*/
+
 		Solution test = new Solution();
-//	    ×î´ó×Ó´®£º
+
 		test.lengthOfLongestSubstring("abcdde");
 		
 		
 
 	}
 
-//¸ø¶¨Ò»¸ö×Ö·û´®£¬ÕÒ³ö²»º¬ÓÐÖØ¸´×Ö·ûµÄ×î³¤×Ó´®µÄ³¤¶È¡£
-//
-//Ê¾Àý£º
-//
-//¸ø¶¨ "abcabcbb" £¬Ã»ÓÐÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "abc" £¬ÄÇÃ´³¤¶È¾ÍÊÇ3¡£
-//
-//¸ø¶¨ "bbbbb" £¬×î³¤µÄ×Ó´®¾ÍÊÇ "b" £¬³¤¶ÈÊÇ1¡£
-//
-//¸ø¶¨ "pwwkew" £¬×î³¤×Ó´®ÊÇ "wke" £¬³¤¶ÈÊÇ3¡£Çë×¢Òâ´ð°¸±ØÐëÊÇÒ»¸ö×Ó´®£¬"pwke" ÊÇ ×ÓÐòÁÐ  ¶ø²»ÊÇ×Ó´®¡£
-	
 	public int lengthOfLongestSubstring(String s) {
 		int n = s.length(), length = 0;
         int[] index = new int[128]; // current index of character
@@ -46,9 +23,9 @@ public class Solution {
         String str = null;
         for ( j = 0, i = 0; j < n; j++) {
         	
-            i = Math.max(index[s.charAt(j)], i);//±È½Ï¸Ã×Ö·ûÎ»ÖÃ´æ´¢µÄÎ»ÖÃÐÅÏ¢ ÊÇ·ñ×îÐÂ  iÊÇ¿ªÍ·µÚÒ»¸ö×Ö·ûÎ»ÖÃ 
-            length = Math.max(length, j - i + 1);//¼ÇÂ¼³¤¶È ×î´óÖµ
-            index[s.charAt(j)] = j + 1;//Èç¹ûÊÇ²»Í¬×Ö·ûÔò»áÒ»Ö±µÝÔöÏÂÈ¥ Èç¹ûÓöµ½ÏàÍ¬×Ö·û Ôò»á¸üÐÂÖ®Ç°¸ÃÎ»ÖÃµÄÊý×Ö ²»ÊÇµÝÔö 
+            i = Math.max(index[s.charAt(j)], i);//ï¿½È½Ï¸ï¿½ï¿½Ö·ï¿½Î»ï¿½Ã´æ´¢ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ï¢ ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½  iï¿½Ç¿ï¿½Í·ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½Î»ï¿½ï¿½ 
+            length = Math.max(length, j - i + 1);//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Öµ
+            index[s.charAt(j)] = j + 1;//ï¿½ï¿½ï¿½ï¿½Ç²ï¿½Í¬ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ò»Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½Ö·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ 
         }
        
      return length;

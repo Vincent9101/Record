@@ -10,6 +10,27 @@ public class TestSolution {
 		System.out.println(isPalindrome(121));
 	}
 
+	  public  int[] twoSum(int[] nums, int target) {
+		  int[] res=new int [2];
+		  int index=0;
+		  boolean flag=false;
+          for(int i=0;i<nums.length-1;i++)
+          {
+        	  if(flag)break;
+        	  for(int j=i+1;j<nums.length;j++)
+        	  {
+        		 if(nums[i]+nums[j]==target)
+        		 {
+        		    res[index++]=i;
+        		    res[index++]=j;
+        		    flag=true;
+        		    break;
+        		 }
+        	  }
+        	  
+          }
+          return res;
+  }
 	public boolean isPalindrome(int x) {
 		char[] temp = String.valueOf(x).toCharArray();
 		char[] reverse = new char[temp.length];
