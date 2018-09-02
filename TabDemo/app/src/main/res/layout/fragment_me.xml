@@ -1,0 +1,28 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title_webview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#3C3C3C"
+            android:gravity="center"
+            android:text="Vincent"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <WebView
+            android:id="@+id/blog_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_webview"></WebView>
+
+
+    </RelativeLayout>
+</FrameLayout>
