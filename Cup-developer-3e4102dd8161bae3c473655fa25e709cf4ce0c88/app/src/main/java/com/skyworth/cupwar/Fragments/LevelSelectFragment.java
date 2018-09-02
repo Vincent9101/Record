@@ -44,7 +44,7 @@ import java.util.Properties;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class LevelSelectFragment extends Fragment {
+public class LevelSelectFragment extends Fragment implements CupIpcManager.IOnHandlerToAIPaintingListener {
 
     private static final String TAG = "LevelSelectFragment";
 
@@ -60,6 +60,36 @@ public class LevelSelectFragment extends Fragment {
     private SharedPreferences sp;
     private SharedPreferences sharedPreferences;
 
+    private CupIpcManager cupIpcManager;
+//    private IpcMsgUtil ipcMsgUtil = IpcMsgUtil.getInstance();
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            String content = msg.obj.toString();
+
+            try {
+                JSONObject json = new JSONObject(content);
+                String cmd = json.optString("query");
+                switch (cmd) {
+                    case "下一个":
+//                        ipcMsgUtil.sendTtsReqEvent("null", "好的");
+                        mAdapter.position++;
+                        mAdapter.notifyDataSetChanged();
+//                        sendKeyCode2(KeyEvent.KEYCODE_DPAD_RIGHT);
+                        break;
+                    case "上一个":
+                        sendKeyCode2(KeyEvent.KEYCODE_DPAD_LEFT);
+                        break;
+                    case "确定":
+                        sendKeyCode2(KeyEvent.KEYCODE_ENTER);
+                        break;
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     public static LevelSelectFragment newInstance(int id) {
         LevelSelectFragment fragment = new LevelSelectFragment();
@@ -93,7 +123,8 @@ public class LevelSelectFragment extends Fragment {
         mView = view.findViewById(R.id.level_recyclerview);
 
         mAdapter = new levelAdapter();
-
+//        cupIpcManager = CupIpcManager.getInstance(mContext);
+//        cupIpcManager.registerOnHandlerListener(this);
 
         mView.setAdapter(mAdapter);
         mView.setLayoutManager(new GridLayoutManager(mContext, 3));
@@ -113,20 +144,44 @@ public class LevelSelectFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mAdapter.notifyDataSetChanged();
-        Log.i(TAG, "onResume: " + pageID);
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void getContentCallback(String content) {
+        if (TextUtils.isEmpty(content)) {
+            return;
+        }
 
-        Log.i(TAG, "onPause: " + pageID);
+        Message message = Message.obtain();
+        message.obj = content;
+        mHandler.sendMessage(message);
+        Log.d(TAG, "getContentCallback: " + content);
+    }
+
+    @Override
+    public void ttsStateCallback(String id, String state, String content) {
+
+    }
+
+    private void sendKeyCode2(final int keyCode) {
+        try {
+
+
+//            Runtime.getRuntime().exec("input keyevent "+KeyEvent.KEYCODE_BACK);
+
+            String keyCommand = "input keyevent " + keyCode;
+            Log.d("sendKeyCode", String.valueOf(keyCode));
+            // 调用Runtime模拟按键操作
+            Runtime.getRuntime().exec(keyCommand);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
     @Override
     public void onDestroy() {
-
+//        cupIpcManager.unregisterOnHandlerListener(this);
         super.onDestroy();
 
     }
@@ -172,13 +227,12 @@ public class LevelSelectFragment extends Fragment {
 
         public levelViewHolder(@NonNull View itemView) {
             super(itemView);
-
             level_background = itemView.findViewById(R.id.level_background);
             level_number = itemView.findViewById(R.id.level_number);
             level_descripition = itemView.findViewById(R.id.level_description);
             itemView.setOnFocusChangeListener(this);
             itemView.setOnClickListener(this);
-            level_card = itemView.findViewById(R.id.level_card);
+            level_card=itemView.findViewById(R.id.level_card);
 
         }
 
@@ -186,8 +240,16 @@ public class LevelSelectFragment extends Fragment {
             level_label = number + 1 + (pageID - 1) * 3;
             level_leaf = db.getStars(sp, level_label);
 
+            Log.i(TAG, "bindView: position - " + mAdapter.position);
+            if (level_label == mAdapter.position) {
+                level_card.setFocusable(true);
+                level_card.setFocusableInTouchMode(true);
+                level_card.requestFocus();
+            } else {
+                level_card.clearFocus();
+            }
 
-            //TODO: 设置关卡描述 可能更改关卡初始化entity
+            //TODO: 设置关卡描述 可能更改关卡初始化enity
             if (level_leaf != -1) {
                 isLocked = false;
             }
@@ -212,8 +274,10 @@ public class LevelSelectFragment extends Fragment {
                 }
 
 
+
                 level_descripition.setVisibility(View.INVISIBLE);
-                if ((int) sharedPreferences.getFloat(String.valueOf(level_label), 0f) != 0) {
+                if((int)sharedPreferences.getFloat(String.valueOf(level_label), 0f)!=0)
+                {
                     level_descripition.setText("最高分： " + (int) sharedPreferences.getFloat(String.valueOf(level_label), 0f));
 
                 }
@@ -253,11 +317,10 @@ public class LevelSelectFragment extends Fragment {
 
 
             if (b) {
-                if ((int) sharedPreferences.getFloat(String.valueOf(level_label), 0f) != 0) {
-                    level_descripition.setVisibility(View.VISIBLE);
+                   if((int)sharedPreferences.getFloat(String.valueOf(level_label), 0f)!=0) {
+                       level_descripition.setVisibility(View.VISIBLE);
 
-                }
-                level_descripition.setText("最高分： " + (int) sharedPreferences.getFloat(String.valueOf(level_label), 0f));
+                   }  level_descripition.setText("最高分： " + (int) sharedPreferences.getFloat(String.valueOf(level_label), 0f));
             } else {
                 level_descripition.setVisibility(View.INVISIBLE);
             }

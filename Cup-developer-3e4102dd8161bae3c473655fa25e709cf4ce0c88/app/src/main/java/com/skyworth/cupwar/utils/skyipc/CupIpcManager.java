@@ -21,7 +21,6 @@ import java.util.List;
 public class CupIpcManager implements SkyCmdProcessInstance.SkyCmdProcessInstanceListener {
     private static final String TAG = CupIpcManager.class.getSimpleName();
     private static CupIpcManager instance = null;
-    private List<IOnHandlerToAIPaintingListener> mOnHandlerListenerList = new ArrayList<>();
     private IOnHandlerToAIPaintingListener mOnHandlerListener;
     private Context mContext;
     private SkyCmdProcessInstance mSkyCmdProcessInstance;
@@ -54,17 +53,15 @@ public class CupIpcManager implements SkyCmdProcessInstance.SkyCmdProcessInstanc
     }
 
     public void registerOnHandlerListener(IOnHandlerToAIPaintingListener onHandlerListener) {
-//        if (mOnHandlerListener != onHandlerListener) {
-//            mOnHandlerListener = onHandlerListener;
-//        }
-        mOnHandlerListenerList.add(onHandlerListener);
+        if (mOnHandlerListener != onHandlerListener) {
+            mOnHandlerListener = onHandlerListener;
+        }
     }
 
     public void unregisterOnHandlerListener(IOnHandlerToAIPaintingListener onHandlerListener) {
-//        if (mOnHandlerListener == onHandlerListener) {
-//            mOnHandlerListener = null;
-//        }
-        mOnHandlerListenerList.remove(onHandlerListener);
+        if (mOnHandlerListener == onHandlerListener) {
+            mOnHandlerListener = null;
+        }
     }
 
     private CupIpcManager(Context context) {
@@ -104,7 +101,7 @@ public class CupIpcManager implements SkyCmdProcessInstance.SkyCmdProcessInstanc
 //        }
 
         try {
-            if (mOnHandlerListenerList != null && mOnHandlerListenerList.size() > 0) {
+            if (mOnHandlerListener != null) {
                 if ("TtsCallBack".equalsIgnoreCase(cmd)) {
                     if (bytes != null) {
                         SkyData skyData = new SkyData(bytes);
@@ -114,10 +111,7 @@ public class CupIpcManager implements SkyCmdProcessInstance.SkyCmdProcessInstanc
                         Log.d(TAG, "tts status callback---" + "id:" + id + "---status" + state);
 
                         if ("end".equalsIgnoreCase(state)) {
-//                            mOnHandlerListener.ttsStateCallback(id, state,content);
-                            for (IOnHandlerToAIPaintingListener handler : mOnHandlerListenerList) {
-                                handler.ttsStateCallback(id, state,content);
-                            }
+                            mOnHandlerListener.ttsStateCallback(id, state,content);
                         }
                     }
                 } else if ("cupwar".equalsIgnoreCase(cmd)) {
@@ -126,9 +120,7 @@ public class CupIpcManager implements SkyCmdProcessInstance.SkyCmdProcessInstanc
                         String content = skyData.getString("value");
                         Log.d(TAG, "cupwar   content "+  content);
 //                        mOnHandlerListener.getContentCallback(content);
-                        for (IOnHandlerToAIPaintingListener handler : mOnHandlerListenerList) {
-                            handler.getContentCallback(content);
-                        }
+
                     }
                 }
             }

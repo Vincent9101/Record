@@ -226,9 +226,5 @@ public class GameActivity extends BaseActivity {
         if(ad!=null)
         ad.stop();
         bgm.release();
-        if (view != null) {
-            view.surfaceDestroyed(view.getHolder());
-            view = null;
-        }
     }
 }

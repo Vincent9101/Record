@@ -268,8 +268,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         count_down.release();
-        isFinished = true;
-        water.stop();
 //        CupIpcManager.getInstance(getContext()).unregisterOnHandlerListener(this);
 
     }
