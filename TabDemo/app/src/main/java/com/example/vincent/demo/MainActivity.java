@@ -94,10 +94,6 @@ public class MainActivity extends AppCompatActivity {
             ((MeFragment)getFragmentManager().findFragmentByTag(MeFragment.class.getName())).getWebView().goBack();
              return  true;
         }
-//        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
-//            mWebView.goBack();
-//            return true;
-//        }
         return super.onKeyDown(keyCode, event);
     }
 
