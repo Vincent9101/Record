@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class Sort {
 
+	
 	@Test
 	public void testSort() {
 		Integer[] array = new Integer[10];
