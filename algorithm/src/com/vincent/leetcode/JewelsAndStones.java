@@ -7,7 +7,7 @@ import sun.tools.jar.resources.jar;
 
 public class JewelsAndStones {
 
-	public static void mian(String[] args) {
+	public static void main(String[] args) {
 
 	}
 
