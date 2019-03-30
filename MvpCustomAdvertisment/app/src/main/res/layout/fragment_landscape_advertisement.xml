@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              tools:context="com.vincent.mvpcustomadvertisement.ui.advertisement.landscape_advertisement.LandscapeAdvertisementFragment">
+    <com.vincent.mvpcustomadvertisement.ui.customview.FullScreenVideoView
+            android:id="@+id/landscape_video_view"
+            android:keepScreenOn="true"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+    <LinearLayout
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        <com.youth.banner.Banner
+                android:keepScreenOn="true"
+                android:id="@+id/landscape_image_banner_1"
+                app:banner_default_image="@mipmap/pic_1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </com.youth.banner.Banner>
+        <com.youth.banner.Banner
+                app:banner_default_image="@mipmap/pic_1"
+                android:keepScreenOn="true"
+                android:id="@+id/landscape_image_banner_2"
+                app:is_auto_play="true"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </com.youth.banner.Banner>
+
+    </LinearLayout>
+
+</LinearLayout>

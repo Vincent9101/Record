@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.vincent.mvpcustomadvertisement.ui.advertisement.portrait_advertisement.PortraitAdvertisementFragment">
+    <com.vincent.mvpcustomadvertisement.ui.customview.FullScreenVideoView
+            android:id="@+id/portrait_video_view"
+            android:keepScreenOn="true"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+    />
+    <com.youth.banner.Banner
+            android:keepScreenOn="true"
+            android:id="@+id/portrait_banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+    </com.youth.banner.Banner>
+</LinearLayout>

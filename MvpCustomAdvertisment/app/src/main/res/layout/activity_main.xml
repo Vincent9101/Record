@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.vincent.mvpcustomadvertisement.ui.init.InitActivity">
+    <LinearLayout
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="900dp"
+            android:layout_height="500dp">
+
+
+        <TextView android:id="@+id/initial_config"
+                  android:layout_width="wrap_content"
+                  android:text="默认图片轮播间隔30s   默认播放模式为模式一"
+                  android:textSize="40dp"
+                  android:layout_gravity="center"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="80dp"
+        />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_marginLeft="100dp"
+                    android:id="@+id/interval_time_spinner"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="200dp">
+            </android.support.v7.widget.AppCompatSpinner>
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_weight="1"
+                    android:id="@+id/way_to_play"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="200dp">
+            </android.support.v7.widget.AppCompatSpinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+        >
+
+            <Button android:id="@+id/btn_setup"
+                    android:layout_width="wrap_content"
+                    android:textSize="35dp"
+                    android:text="设置"
+                    android:layout_marginRight="100dp"
+                    android:layout_height="wrap_content"/>
+
+            <Button android:id="@+id/btn_skip"
+                    android:textSize="35dp"
+                    android:text="跳过"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
