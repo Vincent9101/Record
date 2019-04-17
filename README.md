@@ -9,3 +9,5 @@
 MVP架构开发的广告机，使用了Dagger2 ,RxJava,AndroidFastNeting,ButterKnife等开源框架
 # MvpCustomerAdvetisement 
 在前者基础上添加banner时间自定义，与横竖屏选择。
+# EvaluatingSystemApp
+学习Mvp架构构建的一个简单app，运行需要一个后端。
