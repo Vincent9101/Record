@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner">
+        <item>super</item>
+        <item>normal</item>
+    </string-array>
+
+    <string-array name="face_state_mabi">
+        <item>无单双侧麻痹</item>
+        <item>无单双侧麻痹</item>
+    </string-array>
+    <string-array name="face_state_jinluan">
+        <item>无单双侧痉挛</item>
+        <item>有单双侧痉挛</item>
+    </string-array>
+    <string-array name="face_state_yanlian">
+        <item>无眼脸下垂</item>
+        <item>有眼脸下垂</item>
+    </string-array>
+    <string-array name="face_state_zuijiao">
+        <item>无嘴角下垂</item>
+        <item>有嘴角下垂</item>
+    </string-array>
+
+    <string-array name="lip_state_minzui">
+        <item>抿嘴动作自然</item>
+        <item>抿嘴动作异常</item>
+    </string-array>
+    <string-array name="lip_state_koushou">
+        <item>吹口哨露齿动作自然</item>
+        <item>吹口哨露齿动作异常</item>
+    </string-array>
+
+    <string-array name="join_state_zhudong_kaihe">
+        <item>主动开合动作自然</item>
+        <item>主动开合动作异常</item>
+    </string-array>
+    <string-array name="join_state_beidong_kaihe">
+        <item>被动开合动作自然</item>
+        <item>被动开合动作异常</item>
+    </string-array>
+    <string-array name="join_state_zhudong_yanmo">
+        <item>主动研磨动作自然</item>
+        <item>主动研磨动作异常</item>
+    </string-array>
+    <string-array name="join_state_beidong_yanmo">
+        <item>被动研磨动作自然</item>
+        <item>被动研磨动作异常</item>
+    </string-array>
+
+    <string-array name="membrane_state_xuezhong">
+        <item>无血肿</item>
+        <item>有血肿</item>
+    </string-array>
+    <string-array name="membrane_state_poshun">
+        <item>无破损</item>
+        <item>有破损</item>
+    </string-array>
+    <string-array name="membrane_state_kuiyang">
+        <item>无溃疡</item>
+        <item>有溃疡</item>
+    </string-array>
+
+    <string-array name="teeth_state_quchi">
+        <item>无龋齿</item>
+        <item>有龋齿</item>
+    </string-array>
+    <string-array name="teeth_state_songdong">
+        <item>无松牙齿动</item>
+        <item>有牙齿松动</item>
+    </string-array>
+
+    <string-array name="softpalate_state_biqiang">
+        <item>无鼻腔漏气情况</item>
+        <item>有鼻腔漏气情况</item>
+    </string-array>
+
+    <string-array name="tongue_state_shenzhan">
+        <item>舌头伸展活动正常</item>
+        <item>舌头伸展活动异常</item>
+    </string-array>
+    <string-array name="tongue_state_weijue">
+        <item>味觉正常</item>
+        <item>味觉异常</item>
+    </string-array>
+
+    <string-array name="MWST">
+        <item>1a:不能下咽，没有呛咳，没有呼吸变化和喉头湿性。</item>
+        <item>1b:不能下咽，有呛咳。</item>
+        <item>2:能下咽，没有呛咳，但有显著的呼吸变化(怀疑有隐性误吸)。</item>
+        <item>3a:能下咽，没有呛咳，伴有喉头湿性，没有呼吸变化。</item>
+        <item>3b:能下咽，伴有呛咳。</item>
+        <item>4:能下咽，没有呛咳，无喉头湿性，无呼吸变化。</item>
+    </string-array>
+
+</resources>
