@@ -11,16 +11,15 @@ MVP架构开发的广告机，使用了Dagger2 ,RxJava,AndroidFastNeting,ButterK
 在前者基础上添加banner时间自定义，与横竖屏选择。
 # EvaluatingSystemApp
 基于Mvp开发小app 后端为evaluating_system
-## 技术涉及：
+### 技术涉及：
 - Rxjava 异步框架
 - Dagger2 依赖注入 IOC框架
 - leakcanary
 - MVP架构
 - Rx2-android-networking 异步网络请求框架
 # evaluting_system
-EvaluatingSystemApp的后端实现 数据库文件在sql目录下  
-## 技术涉及：
-
+EvaluatingSystemApp的后端 数据库文件在sql目录下  
+### 技术涉及：
 - springboot
 - swagger2  进行接口开发测试
 - Druid 管理多数据源 数据库监控
