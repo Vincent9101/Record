@@ -1,0 +1,8 @@
+db: db_evaluating_system
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/${db}?characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: admin
+

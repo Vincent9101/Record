@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.evaluating_system.dao.EntityPatientRecordMapper">
+
+    <insert id="saveOrUpdateOne">
+        INSERT INTO table_patient (patient_id,patient_name,patient_age,state_blob,created,updated)
+       VALUES(#{patient.patientId},#{patient.patientName},#{patient.patientAge},#{patient.stateBlob},#{patient.created},#{patient.updated})
+        ON DUPLICATE KEY UPDATE
+           patient_name = VALUES(patient_name),state_blob=VALUES(state_blob),patient_age=VALUES(patient_age),updated =now()
+    </insert>
+
+
+</mapper>

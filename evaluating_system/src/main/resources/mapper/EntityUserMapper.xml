@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.evaluating_system.dao.EntityUserMapper">
+
+
+    <!--<select id="getUserListByRoleId" resultType="EntityUser">-->
+    <!--SELECT table_user.user_id,table_user.account,table_user.nickname,table_user.password,table_user.created,table_user.updated-->
+    <!--FROM table_user, table_user_role-->
+    <!--WHERE  table_user_role.role_id = #{roleId} AND table_user.user_id =table_user_role.user_id-->
+    <!--</select>-->
+    <select id="getUserListByRoleId" resultType="EntityUser">
+        SELECT * FROM table_user u, table_user_role ur
+        WHERE u.user_id = ur.user_id  AND ur.role_id =#{roleId}
+    </select>
+    <!--<select id="getUserListByRoleId" resultType="EntityUser">-->
+    <!--SELECT * FROM table_user,-->
+    <!--INNER JOIN table_user_role-->
+    <!--ON table_user_role.role_id = #{roleId} AND  table_user_role.user_id = table_user.user.id-->
+    <!--</select>-->
+
+
+</mapper>

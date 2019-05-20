@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.evaluating_system.dao.EntityRoleMapper">
+
+    <resultMap id="roleMap" type="EntityRole">
+        <id property="roleId" column="role_id"/>
+        <result property="roleValue" column="role_value"/>
+        <result property="roleDesc" column="role_desc"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="getRoleListByUserId" resultType="EntityRole">
+        SELECT * FROM table_role r, table_user_role ur
+        WHERE r.role_id = ur.role_id AND ur.user_id = #{userId}
+    </select>
+    <!--<select id="getRoleIdsByUserId" resultType="java.lang.String">-->
+    <!--SELECT r.rid FROM sys_role r, sys_user_role ur-->
+    <!--WHERE r.rid = ur.role_id AND ur.user_id = #{userId}-->
+    <!--</select>-->
+
+    <!--<select id="checkRidsContainRval" resultType="java.lang.Boolean">-->
+    <!--SELECT-->
+    <!--CONCAT(',',GROUP_CONCAT(rval SEPARATOR ','),',')-->
+    <!--REGEXP CONCAT(',',#{rval},',{1}') AS result FROM sys_role-->
+    <!--WHERE rid IN-->
+    <!--<foreach collection="rids" item="rid" separator="," open="(" close=")">-->
+    <!--#{rid}-->
+    <!--</foreach>-->
+    <!--</select>-->
+
+    <!--<select id="checkUidContainRval" resultType="java.lang.Boolean">-->
+    <!--SELECT-->
+    <!--CONCAT(',',GROUP_CONCAT(r.rval SEPARATOR ','),',')-->
+    <!--REGEXP CONCAT(',',#{rval},',{1}') AS result FROM sys_role r, sys_user_role ur-->
+    <!--WHERE ur.role_id = r.rid AND ur.user_id = #{uid}-->
+    <!--</select>-->
+
+
+</mapper>

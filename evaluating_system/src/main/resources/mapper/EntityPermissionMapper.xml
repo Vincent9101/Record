@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.evaluating_system.dao.EntityPermissionMapper">
+
+    <select id="getPermListByUserId" resultType="EntityPermission">
+        SELECT p.perm_id,p.perm_value,p.perm_desc,p.created,p.updated
+         FROM table_permission p, table_role_permission rp,table_user_role ur
+        WHERE p.perm_id = rp.perm_id AND ur.role_id = rp.role_id
+        AND ur.user_id = #{userId}
+    </select>
+
+    <select id="getPermListByRoleId" resultType="EntityPermission">
+        SELECT p.perm_id,p.perm_value,p.perm_desc,p.created,p.updated
+        FROM table_permission p, table_role_permission rp
+        WHERE p.perm_id = rp.perm_id AND rp.role_id = #{roleId}
+    </select>
+
+    <insert id="saveOrUpdate">
+        INSERT INTO table_permission (perm_value,perm_desc,created,updated) VALUES
+        <foreach collection="perms" item="p" separator=",">
+            (#{p.perm_value},#{p.perm_desc},#{p.created},#{p.upated})
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        perm_value = VALUES(perm_value), perm_desc = VALUES(perm_desc), created= VALUES(created),updated = now()
+    </insert>
+
+
+</mapper>
